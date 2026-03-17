@@ -1,0 +1,43 @@
+---
+const items = [
+  'Mobile equipment maintenance',
+  'Fixed plant maintenance',
+  'Component rebuilds',
+  'Equipment rental compliance',
+  'Environmental audits',
+];
+---
+
+<section class="py-16 sm:py-24 bg-emi-black">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-xl sm:text-2xl font-bold text-white uppercase tracking-wide mb-4">
+        Our Systems Offer Multi-Level Responses, Standardised Sequences, and In-Built Trigger Actions
+      </h2>
+      <p class="text-emi-gold font-semibold text-lg mb-10">
+        Which radically improves your asset maintenance safety, quality, and efficiency
+      </p>
+
+      <div class="text-left max-w-md mx-auto mb-10">
+        <h3 class="text-lg font-semibold text-white mb-4">We specialise in:</h3>
+        <ul class="space-y-3">
+          {items.map((item) => (
+            <li class="flex items-center gap-3 text-gray-300">
+              <svg class="w-5 h-5 text-emi-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <a
+        href="/take-action"
+        class="inline-block px-8 py-3 border-2 border-emi-gold text-emi-gold font-semibold rounded-lg hover:bg-emi-gold hover:text-emi-black transition-colors"
+      >
+        Find Out How
+      </a>
+    </div>
+  </div>
+</section>

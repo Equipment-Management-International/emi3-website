@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "openbrowser": {
+      "command": "uvx",
+      "args": ["openbrowser-ai[mcp]", "--mcp"]
+    },
+    "contentful-mcp": {
+      "command": "npx",
+      "args": ["-y", "@contentful/mcp-server"],
+      "env": {
+        "CONTENTFUL_MANAGEMENT_ACCESS_TOKEN": "${CONTENTFUL_MANAGEMENT_ACCESS_TOKEN}",
+        "SPACE_ID": "${CONTENTFUL_SPACE_ID}",
+        "ENVIRONMENT_ID": "master",
+        "CONTENTFUL_HOST": "api.contentful.com"
+      }
+    }
+  }
+}

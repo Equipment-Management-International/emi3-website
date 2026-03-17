@@ -1,0 +1,90 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { getClient } from '../../lib/contentful';
+import { renderRichText } from '../../lib/rich-text';
+import type { NewsArticleSkeleton } from '../../lib/contentful-types';
+
+export async function getStaticPaths() {
+  const client = getClient();
+  if (!client) return [];
+
+  try {
+    const res = await client.getEntries<NewsArticleSkeleton>({
+      content_type: 'newsArticle',
+    });
+
+    return res.items.map((article) => ({
+      params: { slug: article.fields.slug },
+      props: { article },
+    }));
+  } catch (e) {
+    console.error('Failed to fetch news articles for paths:', e);
+    return [];
+  }
+}
+
+const { article } = Astro.props;
+const { title, date, body, featuredImage, tags } = article.fields;
+
+const imgUrl = featuredImage?.fields?.file?.url
+  ? `https:${featuredImage.fields.file.url}`
+  : null;
+
+const formattedDate = new Date(date).toLocaleDateString('en-AU', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const bodyHtml = renderRichText(body);
+---
+
+<Layout title={`${title} — EMI News`}>
+  <Nav />
+  <main class="pt-20">
+    {imgUrl && (
+      <div class="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
+        <img
+          src={imgUrl}
+          alt={title}
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/40"></div>
+      </div>
+    )}
+
+    <article class="py-12 sm:py-16">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Meta -->
+        <div class="flex items-center gap-3 mb-4">
+          <time class="text-sm text-gray-500">{formattedDate}</time>
+          {tags && tags.map((tag: string) => (
+            <span class="text-xs font-semibold text-emi-gold bg-emi-gold/10 px-2 py-1 rounded-full uppercase">
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 leading-tight">
+          {title}
+        </h1>
+
+        <!-- Body -->
+        <div class="prose-emi" set:html={bodyHtml} />
+
+        <!-- Back link -->
+        <div class="mt-12 pt-8 border-t border-gray-200">
+          <a href="/news" class="text-emi-gold-dark hover:text-emi-gold font-semibold inline-flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Back to News
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>

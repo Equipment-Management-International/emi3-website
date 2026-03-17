@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  /* EMI Brand — Mining/industrial palette */
+  --color-emi-gold: #D4A012;
+  --color-emi-gold-light: #E8B82E;
+  --color-emi-gold-dark: #B8890E;
+  --color-emi-black: #1A1A1A;
+  --color-emi-charcoal: #2D2D2D;
+  --color-emi-gray: #F5F5F5;
+
+  /* Semantic surface colors */
+  --color-surface: #ffffff;
+  --color-surface-soft: #f9fafb;
+  --color-surface-dark: #1A1A1A;
+  --color-surface-dark-soft: #2D2D2D;
+
+  /* Text */
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-text-on-dark: #f3f4f6;
+  --color-text-on-dark-muted: #9ca3af;
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Inter", system-ui, sans-serif;
+}
+
+/* Reset Tailwind 4 preflight link underlines */
+a {
+  text-decoration-line: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+}

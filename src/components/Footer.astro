@@ -1,0 +1,90 @@
+---
+const currentYear = new Date().getFullYear();
+
+const productLinks = [
+  { label: 'ZoneMaintenance', href: '/zonemaintenance' },
+  { label: 'RouteMaintenance', href: '/routemaintenance' },
+  { label: 'ComponentStatus', href: '/componentstatus' },
+  { label: 'SafetyStatus', href: '/safetystatus' },
+  { label: 'EquipmentStatus', href: '/software-status-suite' },
+  { label: 'EnviroStatus', href: '/software-status-suite' },
+];
+
+const companyLinks = [
+  { label: 'What We Do', href: '/what-we-do' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'News & Blogs', href: '/news' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const legalLinks = [
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Terms of Use', href: '/term-of-use' },
+];
+---
+
+<footer class="bg-emi-black text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+      <!-- Brand -->
+      <div class="col-span-2 md:col-span-1">
+        <a href="/" class="block mb-4">
+          <img
+            src="/images/emi-logo.jpeg"
+            alt="Equipment Management International"
+            class="h-10 w-auto brightness-0 invert"
+          />
+        </a>
+        <p class="text-sm text-gray-400">
+          Complex digital work instructions, shared simply. Serving Tier 1 and 2 mining operations since 2005.
+        </p>
+      </div>
+
+      <!-- Products -->
+      <div>
+        <h3 class="font-semibold text-white mb-4">Products</h3>
+        <ul class="space-y-3">
+          {productLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h3 class="font-semibold text-white mb-4">Company</h3>
+        <ul class="space-y-3">
+          {companyLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h3 class="font-semibold text-white mb-4">Legal</h3>
+        <ul class="space-y-3">
+          {legalLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+      <p>&copy; {currentYear} Equipment Management International P/L. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
