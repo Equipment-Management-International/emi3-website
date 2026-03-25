@@ -98,46 +98,5 @@ body {
   line-height: 1.75;
 }
 
-/* ── Design Language: Typography Scale ── */
-
-/* Hero text needs strong shadow for readability on images */
-.hero-text-shadow {
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.4);
-}
-
-/* Consistent section headings — only use uppercase sparingly */
-.section-heading {
-  font-size: 1.875rem; /* 30px */
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--color-base-content);
-}
-
-@media (min-width: 640px) {
-  .section-heading {
-    font-size: 2.25rem; /* 36px */
-  }
-}
-
-/* Subheadings inside sections */
-.section-subheading {
-  font-size: 1.25rem; /* 20px */
-  font-weight: 600;
-  line-height: 1.3;
-  color: var(--color-base-content);
-}
-
-/* Body text — minimum 16px, generous line height for readability */
-.prose-body {
-  font-size: 1.0625rem; /* 17px — sweet spot between 16 and 18 */
-  line-height: 1.75;
-  color: oklch(0.35 0.01 260);
-}
-
-/* Card body text — never below 15px */
-.card .card-body p,
-.card .card-body li {
-  font-size: 0.9375rem; /* 15px minimum */
-  line-height: 1.65;
-}
+/* Design language classes are in Layout.astro <style is:global> block
+   to survive Tailwind 4's CSS pipeline. See src/layouts/Layout.astro. */

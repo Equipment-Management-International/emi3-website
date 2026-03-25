@@ -51,9 +51,47 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
 
     <title>{title}</title>
 
-    <!-- Global CSS -->
+    <!-- Tailwind + DaisyUI -->
     <style is:global>
       @import '../styles/global.css';
+    </style>
+
+    <!-- Custom design language (outside Tailwind pipeline) -->
+    <style is:global>
+      .hero-text-shadow {
+        text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7), 0 1px 4px rgba(0, 0, 0, 0.5);
+      }
+      .glass-panel {
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .glass-panel-light {
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      .section-heading {
+        font-size: 1.875rem;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+      }
+      @media (min-width: 640px) {
+        .section-heading { font-size: 2.25rem; }
+      }
+      .section-subheading {
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+      .prose-body {
+        font-size: 1.0625rem;
+        line-height: 1.75;
+        color: oklch(0.35 0.01 260);
+      }
     </style>
 
     <!-- Google Analytics -->

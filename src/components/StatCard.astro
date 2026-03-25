@@ -1,0 +1,28 @@
+---
+/**
+ * Reusable stat/metric display.
+ * Big number + label + optional description.
+ * Works standalone or in a grid.
+ */
+interface Props {
+  value: string;
+  label: string;
+  description?: string;
+}
+
+const { value, label, description } = Astro.props;
+---
+
+<div class="text-center p-6">
+  <div class="text-4xl sm:text-5xl font-bold text-primary leading-none mb-2">
+    {value}
+  </div>
+  <div class="text-base font-semibold text-base-content mb-1">
+    {label}
+  </div>
+  {description && (
+    <div class="text-sm text-base-content/70">
+      {description}
+    </div>
+  )}
+</div>

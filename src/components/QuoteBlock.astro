@@ -1,0 +1,46 @@
+---
+/**
+ * Reusable branded quote/blockquote.
+ * Gold left border, optional attribution.
+ * Use on any page for testimonials, philosophy quotes, pull quotes.
+ */
+interface Props {
+  attribution?: string;
+  variant?: 'default' | 'large' | 'card';
+}
+
+const { attribution, variant = 'default' } = Astro.props;
+
+const baseClasses = 'border-l-4 border-primary pl-6';
+const textClasses = {
+  default: 'text-lg italic leading-relaxed',
+  large: 'text-xl sm:text-2xl italic leading-relaxed',
+  card: 'text-lg italic leading-relaxed',
+};
+---
+
+{variant === 'card' ? (
+  <div class="card bg-base-200">
+    <div class="card-body">
+      <blockquote class={`${baseClasses} ${textClasses[variant]}`}>
+        <slot />
+      </blockquote>
+      {attribution && (
+        <cite class="block mt-3 pl-6 text-sm font-semibold text-base-content/60 not-italic">
+          — {attribution}
+        </cite>
+      )}
+    </div>
+  </div>
+) : (
+  <div class={baseClasses}>
+    <blockquote class={textClasses[variant]}>
+      <slot />
+    </blockquote>
+    {attribution && (
+      <cite class="block mt-3 text-sm font-semibold text-base-content/60 not-italic">
+        — {attribution}
+      </cite>
+    )}
+  </div>
+)}

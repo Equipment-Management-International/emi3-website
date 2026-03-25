@@ -1,143 +1,165 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
+import PageHero from '../components/PageHero.astro';
+import QuoteBlock from '../components/QuoteBlock.astro';
+import StatCard from '../components/StatCard.astro';
+import CTABanner from '../components/CTABanner.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="What We Do — Equipment Management International">
-  <Nav />
-  <main id="top" class="pt-20">
-    <!-- Hero with background image -->
-    <section class="relative min-h-[50vh] flex items-center overflow-hidden">
-      <div class="absolute inset-0">
-        <img
-          src="/images/hero/what-we-do.jpg"
-          alt=""
-          class="absolute inset-0 w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+<Layout title="What We Do — Equipment Management International" description="Discover how EMI helps mining operations improve fleet reliability, reduce costs, and achieve 30-40% maintenance improvements through site reviews and software.">
+  <Nav transparent />
+  <main id="top">
+    <!-- Hero with embedded stats -->
+    <PageHero
+      title="Transforming Maintenance Outcomes for Australia's Mining Operations"
+      subtitle="Proven results for Tier 1 and 2 mining companies since 2005."
+      image="/images/hero/what-we-do.jpg"
+    >
+      {/* Stats bar in the hero */}
+      <div class="flex flex-wrap gap-3 mt-4">
+        <div class="glass-panel-light rounded-lg px-5 py-3 text-center">
+          <div class="text-2xl font-bold text-primary">40%</div>
+          <div class="text-xs text-white/70">Fewer breakdowns</div>
+        </div>
+        <div class="glass-panel-light rounded-lg px-5 py-3 text-center">
+          <div class="text-2xl font-bold text-primary">30%+</div>
+          <div class="text-xs text-white/70">Faster PM times</div>
+        </div>
+        <div class="glass-panel-light rounded-lg px-5 py-3 text-center">
+          <div class="text-2xl font-bold text-primary">3 mo</div>
+          <div class="text-xs text-white/70">To global MTBF</div>
+        </div>
+        <a href="/take-action" class="btn btn-primary btn-md self-center ml-1">
+          Book a Site Review
+        </a>
       </div>
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-24 w-full">
-        <h1 class="text-3xl sm:text-4xl font-bold text-white mb-6 hero-text-shadow">
-          What We Do
-        </h1>
-        <blockquote class="max-w-3xl mx-auto">
-          <p class="text-xl sm:text-2xl italic text-white/90 hero-text-shadow">
-            "Your philosophy defines your attitude which determines your actions, which creates your results"
-          </p>
-        </blockquote>
+    </PageHero>
+
+    <!-- Philosophy quote -->
+    <section class="py-12 sm:py-16 bg-base-100">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <QuoteBlock variant="large">
+          "Your philosophy defines your attitude which determines your actions, which creates your results."
+        </QuoteBlock>
       </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Two-column: Problem + Stats sidebar -->
+    <section class="py-16 sm:py-24 bg-base-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-5 gap-12 items-start">
+          <!-- Left: the challenge -->
+          <div class="lg:col-span-3 space-y-6">
+            <h2 class="section-heading">Does This Sound Like Your Site?</h2>
+
+            <ul class="space-y-4">
+              {[
+                'Fleet reliability and availability is declining',
+                'Maintenance costs keep increasing',
+                'Initiatives have been put in place but aren\'t working',
+                'Workforce experience varies — results are inconsistent',
+                'Paper-based processes are slowing everything down',
+              ].map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-error flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>
+                  <span class="prose-body">{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p class="prose-body">
+              Our clients faced the same challenges. The findings and root causes are remarkably consistent across mining operations. The good news? The solutions are simple — and they work every time.
+            </p>
+
+            <p class="prose-body">
+              It starts with a management team that's prepared to support change. Our clients took that first step, and within <strong>3 months</strong> achieved massive improvements.
+            </p>
+          </div>
+
+          <!-- Right: detailed stats sidebar -->
+          <div class="lg:col-span-2">
+            <div class="card bg-base-100 shadow-lg sticky top-24">
+              <div class="card-body p-0">
+                <div class="p-6 border-b border-base-300">
+                  <h3 class="section-subheading text-center">Client Results</h3>
+                </div>
+                <StatCard value="40%" label="Fewer unplanned breakdowns" description="Reduction in downtime events" />
+                <div class="border-t border-base-300"></div>
+                <StatCard value="30%+" label="Faster PM service times" description="Decrease across all servicing" />
+                <div class="border-t border-base-300"></div>
+                <StatCard value="3 mo" label="To global MTBF benchmarks" description="For underground Jumbos" />
+                <div class="border-t border-base-300"></div>
+                <div class="p-4">
+                  <ul class="space-y-2 text-base text-base-content/80">
+                    <li class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                      Massive reductions in maintenance costs
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                      PM Services without downtime
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                      Reduction in fleet numbers required
+                    </li>
+                  </ul>
+                </div>
+                <div class="p-4 border-t border-base-300">
+                  <a href="/take-action" class="btn btn-primary btn-sm w-full">See How We Do It</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works: Site Review -->
     <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="space-y-6 prose-body">
-          <p>
-            If you don't have the right philosophy within your operation, you will not generate the results you're expecting. As the quote indicates, the wrong philosophy gives the wrong attitude which limits action and effects your results.
-          </p>
-          <p>
-            Have you found that your fleet reliability and availability is declining and your costs are increasing and the initiatives that have been put in place are not working? It maybe time to look towards a different strategy.
-          </p>
-          <p>
-            Our clients have been able to make some positive changes, very quickly, to get the results they were needing by applying our recommendations.
-          </p>
-          <p>
-            It all begins with a <strong>Site Review</strong> where a detailed impact report of what is actually happening in the shop or in the field. We present solutions required to achieve your goals.
-          </p>
-          <p>
-            This process has been applied many times and the findings and reasons why maintenance departments are not getting their target KPIs are much the same. The simple solutions we offer have worked in all cases.
-          </p>
-          <p>
-            Clients have achieved massive changes to their operational outputs within 3 months of introducing the methods and recommendations defined in the report.
-          </p>
-          <p>
-            The simple things are not always the easiest — it will take a management team that is prepared to believe and support change. If you don't have that capability within your team then it will be difficult for anyone to help.
-          </p>
-          <p>
-            To get to this point, our clients had to realise that they needed help and they took that first step to change.
-          </p>
-        </div>
+        <h2 class="section-heading mb-10">It All Starts With a Site Review</h2>
 
-        <div class="mt-10">
-          <a href="/take-action" class="btn btn-primary btn-lg">
-            Take that Step
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
+        <div class="grid sm:grid-cols-3 gap-8 mb-12">
+          <div>
+            <div class="w-10 h-10 rounded-full bg-primary text-primary-content flex items-center justify-center text-lg font-bold mb-4">1</div>
+            <h3 class="section-subheading mb-2">We Come to You</h3>
+            <p class="prose-body">5–7 days on your site. We study your methods, run time-and-motion studies, and interview key personnel at all levels.</p>
+          </div>
+          <div>
+            <div class="w-10 h-10 rounded-full bg-primary text-primary-content flex items-center justify-center text-lg font-bold mb-4">2</div>
+            <h3 class="section-subheading mb-2">Present Findings</h3>
+            <p class="prose-body">Before we leave, we present our findings to your team. Direct, fact-based, and sometimes confronting.</p>
+          </div>
+          <div>
+            <div class="w-10 h-10 rounded-full bg-primary text-primary-content flex items-center justify-center text-lg font-bold mb-4">3</div>
+            <h3 class="section-subheading mb-2">Deliver Solutions</h3>
+            <p class="prose-body">A comprehensive report with implementation solutions tailored to your site, team, and budget.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Featured Quote -->
-    <section class="py-16 sm:py-24 bg-base-200">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <blockquote>
-          <p class="text-xl sm:text-2xl italic text-base-content/80 mb-4">
-            "If you look at history, innovation doesn't come just from giving people incentives; it comes from creating environments where their ideas can connect"
-          </p>
-          <cite class="text-primary font-semibold not-italic">— Steven Johnson, author</cite>
-        </blockquote>
+    <!-- Steven Johnson quote -->
+    <section class="py-10 sm:py-14 bg-base-200">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <QuoteBlock variant="large" attribution="Steven Johnson, author">
+          "Innovation doesn't come just from giving people incentives; it comes from creating environments where their ideas can connect."
+        </QuoteBlock>
       </div>
     </section>
 
-    <!-- Results Section -->
-    <section class="py-16 sm:py-24 bg-base-100">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="section-heading text-center mb-12">
-          What Our Clients Achieved
-        </h2>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          <!-- Stat cards using DaisyUI stat component -->
-          <div class="stats shadow bg-base-100">
-            <div class="stat text-center">
-              <div class="stat-value text-primary">40%</div>
-              <div class="stat-desc text-base mt-2">Reduction in unplanned downtime events</div>
-            </div>
-          </div>
-          <div class="stats shadow bg-base-100">
-            <div class="stat text-center">
-              <div class="stat-value text-primary">30%+</div>
-              <div class="stat-desc text-base mt-2">Decrease in PM service times</div>
-            </div>
-          </div>
-          <div class="stats shadow bg-base-100">
-            <div class="stat text-center">
-              <div class="stat-value text-primary text-3xl">3 months</div>
-              <div class="stat-desc text-base mt-2">To reach global MTBF benchmarks for Jumbos</div>
-            </div>
-          </div>
-          <div class="card bg-base-100 shadow">
-            <div class="card-body items-center text-center">
-              <svg class="w-10 h-10 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <p class="text-base">Massive reductions in maintenance costs</p>
-            </div>
-          </div>
-          <div class="card bg-base-100 shadow">
-            <div class="card-body items-center text-center">
-              <svg class="w-10 h-10 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <p class="text-base">PM Services completed without downtime</p>
-            </div>
-          </div>
-          <div class="card bg-base-100 shadow">
-            <div class="card-body items-center text-center">
-              <svg class="w-10 h-10 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-              <p class="text-base">Reduction in fleet numbers required</p>
-            </div>
-          </div>
-        </div>
-
-        <p class="prose-body text-center max-w-3xl mx-auto mb-10">
-          There are smart Asset Managers that know they have issues and put their hand up for help — and there are others that aren't.
-        </p>
-
-        <div class="text-center">
-          <a href="/contact" class="btn btn-primary btn-lg">
-            Contact Us
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- CTA -->
+    <CTABanner
+      heading="Smart Asset Managers Know When to Ask for Help"
+      subtitle="Take the first step toward transforming your maintenance operations."
+      primaryLabel="Book a Site Review"
+      primaryHref="/take-action"
+      secondaryLabel="Contact Us"
+      secondaryHref="/contact"
+    />
   </main>
   <Footer />
 </Layout>
