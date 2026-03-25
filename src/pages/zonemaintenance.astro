@@ -2,29 +2,24 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import QuoteBlock from '../components/QuoteBlock.astro';
+import StatCard from '../components/StatCard.astro';
+import CTABanner from '../components/CTABanner.astro';
 ---
 
 <Layout title="ZoneMaintenance — Equipment Management International" description="ZoneMaintenance software streamlines mobile mining equipment maintenance with digital work instructions, reducing PM service times by 30% and breakdowns by 40%.">
   <Nav />
-  <main class="pt-20">
+  <main id="top" class="pt-20">
     <!-- Hero -->
-    <section class="bg-neutral text-neutral-content py-16 sm:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <div class="flex-1 text-center md:text-left">
-            <h1 class="text-3xl sm:text-4xl font-bold mb-4">
-              ZoneMaintenance Software
-            </h1>
-            <p class="text-lg text-neutral-content/80 max-w-2xl">
-              Advanced and flexible mobile mining equipment maintenance software
-            </p>
-          </div>
-          <div class="flex-shrink-0">
-            <img src="/images/products/zone-maintenance-logo.jpg" alt="ZoneMaintenance logo" class="h-24 sm:h-32 rounded-lg" />
-          </div>
-        </div>
+    <PageHero
+      title="ZoneMaintenance Software"
+      subtitle="Advanced and flexible mobile mining equipment maintenance software"
+    >
+      <div class="mt-4">
+        <img src="/images/products/zone-maintenance-logo.jpg" alt="ZoneMaintenance logo" class="h-24 sm:h-32 rounded-lg" />
       </div>
-    </section>
+    </PageHero>
 
     <!-- A Simple Repeatable Process -->
     <section class="py-16 sm:py-24 bg-base-100">
@@ -128,11 +123,11 @@ import Footer from '../components/Footer.astro';
     <!-- Key Quote -->
     <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <blockquote>
-          <p class="text-xl sm:text-2xl italic text-neutral-content/90">
+        <QuoteBlock variant="large">
+          <p class="text-neutral-content/90">
             "Our maintenance software and methods are designed to eliminate wasted time and effort within Preventative Maintenance (PM) Services — reducing servicing time by over 30% and unplanned breakdowns by over 40%. We provide a defined process to performing effective, repeatable servicing and inspections for mobile mining equipment."
           </p>
-        </blockquote>
+        </QuoteBlock>
       </div>
     </section>
 
@@ -193,19 +188,11 @@ import Footer from '../components/Footer.astro';
           When safety, quality, and effective turnaround is essential, we can help you streamline your maintenance processes for mobile equipment with ZoneMaintenance.
         </p>
         <div class="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          <div class="stats shadow border-2 border-primary">
-            <div class="stat text-center">
-              <div class="stat-value text-primary">30%</div>
-              <div class="stat-title text-base font-medium">Reduction in PM service times</div>
-              <div class="stat-desc">More productivity, more uptime</div>
-            </div>
+          <div class="card bg-base-100 shadow border-2 border-primary">
+            <StatCard value="30%" label="Reduction in PM service times" description="More productivity, more uptime" />
           </div>
-          <div class="stats shadow border-2 border-primary">
-            <div class="stat text-center">
-              <div class="stat-value text-primary">40%</div>
-              <div class="stat-title text-base font-medium">Fewer unplanned breakdowns</div>
-              <div class="stat-desc">Improved fleet reliability</div>
-            </div>
+          <div class="card bg-base-100 shadow border-2 border-primary">
+            <StatCard value="40%" label="Fewer unplanned breakdowns" description="Improved fleet reliability" />
           </div>
         </div>
         <div class="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto mt-8">
@@ -274,24 +261,14 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- CTA -->
-    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl sm:text-3xl font-bold mb-4">
-          Looking for a Better System for Your Mining Equipment Maintenance?
-        </h2>
-        <p class="text-neutral-content/80 mb-8 text-lg">
-          Try our demo version or get in touch to discuss how ZoneMaintenance can transform your operations.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact" class="btn btn-primary btn-lg">
-            Ask for a Demo
-          </a>
-          <a href="/take-action" class="btn btn-outline btn-primary btn-lg">
-            Take Action
-          </a>
-        </div>
-      </div>
-    </section>
+    <CTABanner
+      heading="Looking for a Better System for Your Mining Equipment Maintenance?"
+      subtitle="Try our demo version or get in touch to discuss how ZoneMaintenance can transform your operations."
+      primaryLabel="Ask for a Demo"
+      primaryHref="/contact"
+      secondaryLabel="Take Action"
+      secondaryHref="/take-action"
+    />
   </main>
   <Footer />
 </Layout>

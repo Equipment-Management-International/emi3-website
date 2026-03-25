@@ -2,23 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
 <Layout title="Contact — Equipment Management International" description="Get in touch with Equipment Management International for a consultation, demo access, or to discuss maintenance software solutions for your mining operation.">
   <Nav />
   <main id="top" class="pt-20">
+    <PageHero
+      compact
+      title="Contact Us"
+      subtitle="Get in touch for a consultation, demo access, or to discuss how we can help streamline your maintenance operations."
+    />
+
     <section class="py-16 sm:py-24">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-5 gap-12">
           <!-- Company details -->
           <div class="lg:col-span-2">
-            <h1 class="section-heading mb-4">
-              Contact Us
-            </h1>
-            <p class="prose-body mb-8">
-              Get in touch for a consultation, demo access, or to discuss how we can help streamline your maintenance operations.
-            </p>
-
             <div class="space-y-4 text-base-content/80">
               <div>
                 <p class="font-semibold text-base-content">Equipment Management International P/L</p>

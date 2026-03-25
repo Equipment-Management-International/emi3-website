@@ -2,32 +2,25 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABanner from '../components/CTABanner.astro';
 ---
 
 <Layout title="ComponentStatus — Equipment Management International" description="ComponentStatus provides guided digital work instructions for component rebuilds and repairs, with parts tracking, defect recording, and job control analytics.">
   <Nav />
-  <main class="pt-20">
+  <main id="top" class="pt-20">
     <!-- Hero -->
-    <section class="bg-neutral text-neutral-content py-16 sm:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <div class="flex-1 text-center md:text-left">
-            <h1 class="text-3xl sm:text-4xl font-bold mb-4">
-              ComponentStatus
-            </h1>
-            <p class="text-lg text-neutral-content/80 max-w-2xl">
-              Digital task instructions for component rebuilds
-            </p>
-            <p class="text-neutral-content/70 max-w-2xl mt-3">
-              Each step clearly defines what the task is and how to do it, which trains the user on how to carry out a rebuild or repair safely and efficiently.
-            </p>
-          </div>
-          <div class="flex-shrink-0">
-            <img src="/images/products/component-status-logo.png" alt="ComponentStatus logo" class="h-24 sm:h-32 rounded-lg" />
-          </div>
-        </div>
+    <PageHero
+      title="ComponentStatus"
+      subtitle="Digital task instructions for component rebuilds"
+    >
+      <div class="mt-4 space-y-3">
+        <p class="text-white/70 max-w-xl text-base">
+          Each step clearly defines what the task is and how to do it, which trains the user on how to carry out a rebuild or repair safely and efficiently.
+        </p>
+        <img src="/images/products/component-status-logo.png" alt="ComponentStatus logo" class="h-24 sm:h-32 rounded-lg" />
       </div>
-    </section>
+    </PageHero>
 
     <!-- Problem Statement -->
     <section class="py-16 sm:py-24 bg-base-100">
@@ -190,24 +183,14 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- CTA -->
-    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl sm:text-3xl font-bold mb-4">
-          Simplify Your Component Rebuild Processes
-        </h2>
-        <p class="text-neutral-content/80 mb-8 text-lg">
-          Request a demo to see how ComponentStatus can transform your rebuild centre operations.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact" class="btn btn-primary btn-lg">
-            Request a Demo
-          </a>
-          <a href="/take-action" class="btn btn-outline btn-primary btn-lg">
-            Take Action
-          </a>
-        </div>
-      </div>
-    </section>
+    <CTABanner
+      heading="Simplify Your Component Rebuild Processes"
+      subtitle="Request a demo to see how ComponentStatus can transform your rebuild centre operations."
+      primaryLabel="Request a Demo"
+      primaryHref="/contact"
+      secondaryLabel="Take Action"
+      secondaryHref="/take-action"
+    />
   </main>
   <Footer />
 </Layout>

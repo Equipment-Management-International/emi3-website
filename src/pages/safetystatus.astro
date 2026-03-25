@@ -2,29 +2,22 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABanner from '../components/CTABanner.astro';
 ---
 
 <Layout title="SafetyStatus — Equipment Management International" description="SafetyStatus replaces generic paper checklists with structured, mobility-based safety audits and inspections for mining sites. Available on iPad.">
   <Nav />
-  <main class="pt-20">
+  <main id="top" class="pt-20">
     <!-- Hero -->
-    <section class="bg-neutral text-neutral-content py-16 sm:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <div class="flex-1 text-center md:text-left">
-            <h1 class="text-3xl sm:text-4xl font-bold mb-4">
-              SafetyStatus
-            </h1>
-            <p class="text-lg text-neutral-content/80 max-w-2xl">
-              Tech-based solutions for structured and practical safety audits and inspections
-            </p>
-          </div>
-          <div class="flex-shrink-0">
-            <img src="/images/products/safety-status-logo.png" alt="SafetyStatus logo" class="h-24 sm:h-32 rounded-lg" />
-          </div>
-        </div>
+    <PageHero
+      title="SafetyStatus"
+      subtitle="Tech-based solutions for structured and practical safety audits and inspections"
+    >
+      <div class="mt-4">
+        <img src="/images/products/safety-status-logo.png" alt="SafetyStatus logo" class="h-24 sm:h-32 rounded-lg" />
       </div>
-    </section>
+    </PageHero>
 
     <!-- Opening Statement -->
     <section class="py-16 sm:py-24 bg-base-100">
@@ -145,24 +138,14 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- CTA -->
-    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl sm:text-3xl font-bold mb-4">
-          Ready to Upgrade Your Safety Audits?
-        </h2>
-        <p class="text-neutral-content/80 mb-8 text-lg">
-          Request a demo to see how SafetyStatus can transform your inspection processes.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact" class="btn btn-primary btn-lg">
-            Request a Demo
-          </a>
-          <a href="/take-action" class="btn btn-outline btn-primary btn-lg">
-            Take Action
-          </a>
-        </div>
-      </div>
-    </section>
+    <CTABanner
+      heading="Ready to Upgrade Your Safety Audits?"
+      subtitle="Request a demo to see how SafetyStatus can transform your inspection processes."
+      primaryLabel="Request a Demo"
+      primaryHref="/contact"
+      secondaryLabel="Take Action"
+      secondaryHref="/take-action"
+    />
   </main>
   <Footer />
 </Layout>

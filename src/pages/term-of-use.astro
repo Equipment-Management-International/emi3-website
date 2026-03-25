@@ -2,20 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
 <Layout title="Terms of Use — Equipment Management International" description="Terms of use for EMI3 software and applications. Covers subscription licensing, user conduct, intellectual property, and liability for EMI platforms.">
   <Nav />
   <main id="top" class="pt-20">
-    <!-- Hero -->
-    <section class="bg-neutral text-neutral-content py-16 sm:py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-3xl sm:text-4xl font-bold">
-          Terms of Use
-        </h1>
-        <p class="text-neutral-content/70 mt-2 text-base">Effective Date: May 1, 2023 — Applies to EMI3.io and applications within</p>
-      </div>
-    </section>
+    <PageHero
+      compact
+      title="Terms of Use"
+      subtitle="Effective Date: May 1, 2023 — Applies to EMI3.io and applications within"
+    />
 
     <!-- Content -->
     <section class="py-16 sm:py-24 bg-base-100">

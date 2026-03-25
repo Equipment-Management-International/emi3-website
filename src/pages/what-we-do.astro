@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import PageHero from '../components/PageHero.astro';
 import QuoteBlock from '../components/QuoteBlock.astro';
-import StatCard from '../components/StatCard.astro';
 import CTABanner from '../components/CTABanner.astro';
 import Footer from '../components/Footer.astro';
 ---
@@ -17,7 +16,6 @@ import Footer from '../components/Footer.astro';
       subtitle="Proven results for Tier 1 and 2 mining companies since 2005."
       image="/images/hero/what-we-do.jpg"
     >
-      {/* Stats bar in the hero */}
       <div class="flex flex-wrap gap-3 mt-4">
         <div class="glass-panel-light rounded-lg px-5 py-3 text-center">
           <div class="text-2xl font-bold text-primary">40%</div>
@@ -46,74 +44,30 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- Two-column: Problem + Stats sidebar -->
+    <!-- The challenge -->
     <section class="py-16 sm:py-24 bg-base-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-5 gap-12 items-start">
-          <!-- Left: the challenge -->
-          <div class="lg:col-span-3 space-y-6">
-            <h2 class="section-heading">Does This Sound Like Your Site?</h2>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-heading mb-8">Does This Sound Like Your Site?</h2>
 
-            <ul class="space-y-4">
-              {[
-                'Fleet reliability and availability is declining',
-                'Maintenance costs keep increasing',
-                'Initiatives have been put in place but aren\'t working',
-                'Workforce experience varies — results are inconsistent',
-                'Paper-based processes are slowing everything down',
-              ].map((item) => (
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-error flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>
-                  <span class="prose-body">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p class="prose-body">
-              Our clients faced the same challenges. The findings and root causes are remarkably consistent across mining operations. The good news? The solutions are simple — and they work every time.
-            </p>
-
-            <p class="prose-body">
-              It starts with a management team that's prepared to support change. Our clients took that first step, and within <strong>3 months</strong> achieved massive improvements.
-            </p>
-          </div>
-
-          <!-- Right: detailed stats sidebar -->
-          <div class="lg:col-span-2">
-            <div class="card bg-base-100 shadow-lg sticky top-24">
-              <div class="card-body p-0">
-                <div class="p-6 border-b border-base-300">
-                  <h3 class="section-subheading text-center">Client Results</h3>
-                </div>
-                <StatCard value="40%" label="Fewer unplanned breakdowns" description="Reduction in downtime events" />
-                <div class="border-t border-base-300"></div>
-                <StatCard value="30%+" label="Faster PM service times" description="Decrease across all servicing" />
-                <div class="border-t border-base-300"></div>
-                <StatCard value="3 mo" label="To global MTBF benchmarks" description="For underground Jumbos" />
-                <div class="border-t border-base-300"></div>
-                <div class="p-4">
-                  <ul class="space-y-2 text-base text-base-content/80">
-                    <li class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                      Massive reductions in maintenance costs
-                    </li>
-                    <li class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                      PM Services without downtime
-                    </li>
-                    <li class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                      Reduction in fleet numbers required
-                    </li>
-                  </ul>
-                </div>
-                <div class="p-4 border-t border-base-300">
-                  <a href="/take-action" class="btn btn-primary btn-sm w-full">See How We Do It</a>
-                </div>
-              </div>
+        <div class="grid sm:grid-cols-2 gap-4 mb-10">
+          {[
+            'Fleet reliability and availability is declining',
+            'Maintenance costs keep increasing',
+            'Initiatives have been put in place but aren\'t working',
+            'Workforce experience varies — results are inconsistent',
+            'Paper-based processes are slowing everything down',
+            'Knowledge lost through high staff turnover',
+          ].map((item) => (
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-error flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>
+              <span class="prose-body">{item}</span>
             </div>
-          </div>
+          ))}
         </div>
+
+        <p class="prose-body max-w-3xl">
+          Our clients faced the same challenges. The root causes are remarkably consistent across mining operations. The good news? The solutions are simple — and they work every time. It starts with a management team prepared to support change.
+        </p>
       </div>
     </section>
 
@@ -122,7 +76,7 @@ import Footer from '../components/Footer.astro';
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="section-heading mb-10">It All Starts With a Site Review</h2>
 
-        <div class="grid sm:grid-cols-3 gap-8 mb-12">
+        <div class="grid sm:grid-cols-3 gap-8 mb-10">
           <div>
             <div class="w-10 h-10 rounded-full bg-primary text-primary-content flex items-center justify-center text-lg font-bold mb-4">1</div>
             <h3 class="section-subheading mb-2">We Come to You</h3>

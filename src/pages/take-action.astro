@@ -2,22 +2,22 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import QuoteBlock from '../components/QuoteBlock.astro';
+import CTABanner from '../components/CTABanner.astro';
 ---
 
 <Layout title="Take Action — Equipment Management International" description="Book a 5-7 day on-site review to uncover maintenance inefficiencies. EMI delivers a detailed impact report with actionable solutions for mining operations.">
   <Nav />
   <main id="top" class="pt-20">
-    <!-- Hero with Quote -->
-    <section class="bg-neutral text-neutral-content py-16 sm:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <blockquote class="max-w-3xl mx-auto">
-          <p class="text-2xl sm:text-3xl lg:text-4xl font-bold italic mb-6">
-            "You don't have to be great to start, you have to start to be great"
-          </p>
-          <cite class="text-primary font-semibold text-lg not-italic">— Zig Ziglar</cite>
-        </blockquote>
-      </div>
-    </section>
+    <PageHero
+      title="Take Action"
+      align="center"
+    >
+      <QuoteBlock attribution="Zig Ziglar" variant="large">
+        <span class="text-white">"You don't have to be great to start, you have to start to be great"</span>
+      </QuoteBlock>
+    </PageHero>
 
     <!-- Site Review Description -->
     <section class="py-16 sm:py-24 bg-base-100">
@@ -32,9 +32,11 @@ import Footer from '../components/Footer.astro';
           <p>
             Managers often find themselves consumed by day-to-day operations rather than strategic planning, missing visibility into actual team performance and underlying issues.
           </p>
-          <p class="font-semibold text-base-content border-l-4 border-primary pl-6">
+        </div>
+        <div class="mt-8">
+          <QuoteBlock>
             Our approach is direct, fact based and the findings can be confronting.
-          </p>
+          </QuoteBlock>
         </div>
       </div>
     </section>
@@ -119,19 +121,12 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- CTA -->
-    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="section-heading text-neutral-content mb-4">
-          Ready to Take That First Step?
-        </h2>
-        <p class="text-neutral-content/80 mb-8 text-lg">
-          Contact us today to discuss a Site Review and start the journey to better maintenance outcomes.
-        </p>
-        <a href="/contact" class="btn btn-primary btn-lg">
-          Contact Us
-        </a>
-      </div>
-    </section>
+    <CTABanner
+      heading="Ready to Take That First Step?"
+      subtitle="Contact us today to discuss a Site Review and start the journey to better maintenance outcomes."
+      primaryLabel="Contact Us"
+      primaryHref="/contact"
+    />
   </main>
   <Footer />
 </Layout>

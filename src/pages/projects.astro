@@ -2,22 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABanner from '../components/CTABanner.astro';
 ---
 
 <Layout title="Projects — Equipment Management International" description="Explore EMI project case studies including ZoneMaintenance development, Cat 789C truck assembly, workshop design, and maintenance strategy consulting.">
   <Nav />
   <main id="top" class="pt-20">
-    <!-- Hero -->
-    <section class="bg-neutral text-neutral-content py-16 sm:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-3xl sm:text-4xl font-bold mb-6">
-          Projects
-        </h1>
-        <p class="text-lg text-neutral-content/80 max-w-3xl mx-auto">
-          A selection of projects that demonstrate our experience and the results we deliver
-        </p>
-      </div>
-    </section>
+    <PageHero
+      title="Projects"
+      subtitle="A selection of projects that demonstrate our experience and the results we deliver"
+      align="center"
+    />
 
     <!-- Project Cards -->
     <section class="py-16 sm:py-24 bg-base-100">
@@ -111,19 +107,12 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- CTA -->
-    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="section-heading text-neutral-content mb-4">
-          Let's Discuss Your Project
-        </h2>
-        <p class="text-neutral-content/80 mb-8 text-lg">
-          Whether it's software implementation, strategy consulting, or facility design, we can help.
-        </p>
-        <a href="/contact" class="btn btn-primary btn-lg">
-          Contact Us
-        </a>
-      </div>
-    </section>
+    <CTABanner
+      heading="Let's Discuss Your Project"
+      subtitle="Whether it's software implementation, strategy consulting, or facility design, we can help."
+      primaryLabel="Contact Us"
+      primaryHref="/contact"
+    />
   </main>
   <Footer />
 </Layout>

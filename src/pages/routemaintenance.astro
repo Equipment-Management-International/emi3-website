@@ -2,29 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import QuoteBlock from '../components/QuoteBlock.astro';
+import CTABanner from '../components/CTABanner.astro';
 ---
 
 <Layout title="RouteMaintenance — Equipment Management International" description="RouteMaintenance digitises fixed plant inspections and periodic maintenance with structured, repeatable processes. Eliminate paper-based work packs on-site.">
   <Nav />
-  <main class="pt-20">
+  <main id="top" class="pt-20">
     <!-- Hero -->
-    <section class="bg-neutral text-neutral-content py-16 sm:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <div class="flex-1 text-center md:text-left">
-            <h1 class="text-3xl sm:text-4xl font-bold mb-4">
-              RouteMaintenance Software
-            </h1>
-            <p class="text-lg text-neutral-content/80 max-w-2xl">
-              Innovative and adaptable fixed plant maintenance software
-            </p>
-          </div>
-          <div class="flex-shrink-0">
-            <img src="/images/products/route-maintenance-logo.jpg" alt="RouteMaintenance logo" class="h-24 sm:h-32 rounded-lg" />
-          </div>
-        </div>
+    <PageHero
+      title="RouteMaintenance Software"
+      subtitle="Innovative and adaptable fixed plant maintenance software"
+    >
+      <div class="mt-4">
+        <img src="/images/products/route-maintenance-logo.jpg" alt="RouteMaintenance logo" class="h-24 sm:h-32 rounded-lg" />
       </div>
-    </section>
+    </PageHero>
 
     <!-- A Simple Repeatable Process -->
     <section class="py-16 sm:py-24 bg-base-100">
@@ -126,9 +120,11 @@ import Footer from '../components/Footer.astro';
           <p>
             RouteMaintenance offers your maintenance team necessary information electronically at the time of each defined task. The amount of routes you can develop is limitless.
           </p>
-          <p class="text-primary font-semibold italic">
-            "Software designed specifically for in the field audits and inspections. Eliminating paper based work packs."
-          </p>
+          <QuoteBlock variant="large">
+            <p class="text-primary">
+              "Software designed specifically for in the field audits and inspections. Eliminating paper based work packs."
+            </p>
+          </QuoteBlock>
           <p>
             RouteMaintenance could be integrated seamlessly with your CMMS (for example, SAP).
           </p>
@@ -199,24 +195,14 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- CTA -->
-    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl sm:text-3xl font-bold mb-4">
-          Ready to Transform Your Fixed Plant Maintenance?
-        </h2>
-        <p class="text-neutral-content/80 mb-8 text-lg">
-          Try our demo version or get in touch to discuss how RouteMaintenance can streamline your operations.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact" class="btn btn-primary btn-lg">
-            Contact Us
-          </a>
-          <a href="/take-action" class="btn btn-outline btn-primary btn-lg">
-            Take Action
-          </a>
-        </div>
-      </div>
-    </section>
+    <CTABanner
+      heading="Ready to Transform Your Fixed Plant Maintenance?"
+      subtitle="Try our demo version or get in touch to discuss how RouteMaintenance can streamline your operations."
+      primaryLabel="Contact Us"
+      primaryHref="/contact"
+      secondaryLabel="Take Action"
+      secondaryHref="/take-action"
+    />
   </main>
   <Footer />
 </Layout>

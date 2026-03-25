@@ -2,23 +2,22 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABanner from '../components/CTABanner.astro';
 ---
 
 <Layout title="Magnom Filtration — Equipment Management International" description="EMI is the Australian distributor for Magnom filtration systems. Removes ferrous particles down to 1 micron, cleanable, and does not restrict flow.">
   <Nav />
   <main id="top" class="pt-20">
-    <!-- Hero -->
-    <section class="bg-neutral text-neutral-content py-16 sm:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-3xl sm:text-4xl font-bold mb-6">
-          Magnom Filtration
-        </h1>
-        <p class="text-lg text-neutral-content/80 max-w-3xl mx-auto">
-          Equipment Management International P/L is the national distributor for
-          <a href="https://www.magnom.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary/80 underline underline-offset-2">Magnom</a>
-        </p>
-      </div>
-    </section>
+    <PageHero
+      title="Magnom Filtration"
+      align="center"
+    >
+      <p class="text-lg text-white/80">
+        Equipment Management International P/L is the national distributor for
+        <a href="https://www.magnom.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary/80 underline underline-offset-2">Magnom</a>
+      </p>
+    </PageHero>
 
     <!-- Product Description -->
     <section class="py-16 sm:py-24 bg-base-100">
@@ -93,21 +92,12 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- CTA -->
-    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="section-heading text-neutral-content mb-4">
-          Interested in Magnom Filtration?
-        </h2>
-        <p class="text-neutral-content/80 mb-8 text-lg">
-          Get in touch to learn more about
-          <a href="https://www.magnom.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary/80 underline underline-offset-2">Magnom</a>
-          filter systems and how they can benefit your operation.
-        </p>
-        <a href="/contact" class="btn btn-primary btn-lg">
-          Contact Us
-        </a>
-      </div>
-    </section>
+    <CTABanner
+      heading="Interested in Magnom Filtration?"
+      subtitle="Get in touch to learn more about Magnom filter systems and how they can benefit your operation."
+      primaryLabel="Contact Us"
+      primaryHref="/contact"
+    />
   </main>
   <Footer />
 </Layout>

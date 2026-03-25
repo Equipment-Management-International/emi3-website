@@ -2,30 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABanner from '../components/CTABanner.astro';
 ---
 
 <Layout title="Sensory Based Data — Equipment Management International" description="Combine what technicians see, hear, smell, and touch with sensor data for a complete asset health picture. The missing link in mining maintenance.">
-  <Nav />
-  <main id="top" class="pt-20">
-    <!-- Hero with background image -->
-    <section class="relative min-h-[50vh] flex items-center overflow-hidden">
-      <div class="absolute inset-0">
-        <img
-          src="/images/hero/sensory-data.jpg"
-          alt=""
-          class="absolute inset-0 w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
-      </div>
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-24 w-full">
-        <h1 class="text-3xl sm:text-4xl font-bold text-white mb-6 hero-text-shadow">
-          Sensory Based Data
-        </h1>
-        <p class="text-2xl text-primary font-semibold hero-text-shadow">
-          The Missing Link
-        </p>
-      </div>
-    </section>
+  <Nav transparent />
+  <main id="top">
+    <PageHero
+      title="Sensory Based Data"
+      subtitle="The Missing Link"
+      image="/images/hero/sensory-data.jpg"
+      align="center"
+    />
 
     <!-- Evolution of Maintenance -->
     <section class="py-16 sm:py-24 bg-base-100">
@@ -196,24 +185,14 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- CTA -->
-    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="section-heading text-neutral-content mb-4">
-          Take the Next Step
-        </h2>
-        <p class="text-neutral-content/80 mb-8 text-lg">
-          Stay ahead in today's competitive mining landscape. It's essential to adopt a digitalisation strategy that combines sensor and sensory data.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact" class="btn btn-primary btn-lg">
-            Contact Us Today
-          </a>
-          <a href="/take-action" class="btn btn-outline btn-primary btn-lg">
-            Take Action
-          </a>
-        </div>
-      </div>
-    </section>
+    <CTABanner
+      heading="Take the Next Step"
+      subtitle="Stay ahead in today's competitive mining landscape. It's essential to adopt a digitalisation strategy that combines sensor and sensory data."
+      primaryLabel="Contact Us Today"
+      primaryHref="/contact"
+      secondaryLabel="Take Action"
+      secondaryHref="/take-action"
+    />
   </main>
   <Footer />
 </Layout>

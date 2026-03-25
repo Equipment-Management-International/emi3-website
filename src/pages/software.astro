@@ -2,30 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CTABanner from '../components/CTABanner.astro';
 ---
 
 <Layout title="Maintenance Software Suite — Equipment Management International" description="Purpose-built maintenance software for mining. ZoneMaintenance and RouteMaintenance digitise PM services, reducing turnaround times and eliminating paper.">
-  <Nav />
-  <main id="top" class="pt-20">
-    <!-- Hero with background image -->
-    <section class="relative min-h-[50vh] flex items-center overflow-hidden">
-      <div class="absolute inset-0">
-        <img
-          src="/images/hero/software.jpg"
-          alt=""
-          class="absolute inset-0 w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
-      </div>
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-24 w-full">
-        <h1 class="text-3xl sm:text-4xl font-bold text-white mb-6 hero-text-shadow">
-          Maintenance Software Suite
-        </h1>
-        <p class="text-lg text-white/90 max-w-3xl mx-auto hero-text-shadow">
-          Specialised maintenance software that's designed and built by tradesmen who've been on the tools and across management
-        </p>
-      </div>
-    </section>
+  <Nav transparent />
+  <main id="top">
+    <PageHero
+      title="Maintenance Software Suite"
+      subtitle="Specialised maintenance software that's designed and built by tradesmen who've been on the tools and across management"
+      image="/images/hero/software.jpg"
+      align="center"
+    />
 
     <!-- Opening -->
     <section class="py-16 sm:py-24 bg-base-100">
