@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="SafetyStatus — Equipment Management International">
+  <Nav />
+  <main class="pt-20">
+    <!-- Hero -->
+    <section class="bg-emi-black text-white py-16 sm:py-24 scroll-mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide mb-6">
+          SafetyStatus
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Tech-based solutions for structured and practical safety audits and inspections
+        </p>
+      </div>
+    </section>
+
+    <!-- Opening Statement -->
+    <section class="py-16 sm:py-24 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-lg text-gray-700 mb-6">
+          SafetyStatus allows you to remove generic paper-based work area safety checklists that slow down your operation. And with a focus on safe and efficient processes, the data is easier to collect, analyse, and make decisions on.
+        </p>
+        <p class="text-gray-700">
+          Mining companies have been doing things the same way for years, without anyone questioning these typical methods. But there are many common issues with the usual site inspection checklist methods.
+        </p>
+      </div>
+    </section>
+
+    <!-- Common Issues -->
+    <section class="py-16 sm:py-24 bg-emi-gray">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-4">
+          Do Any of These Sound Familiar?
+        </h2>
+        <div class="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto mt-8">
+          {[
+            'Limited direction or guidelines due to lack of available content',
+            'Inexperienced workers assigned to roles with no prior preparation',
+            'Lack of awareness of potential risks involved',
+            'Management unaware of where time is actually being spent',
+            'Paper-based field audits and inspections with one-size-fits-all forms',
+            'Time wasted performing and reporting due to limited flow or structure',
+            'Rehandling of documents and delays in vital communication',
+          ].map((issue) => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-5 border border-gray-200">
+              <svg class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+              <p class="text-gray-700">{issue}</p>
+            </div>
+          ))}
+        </div>
+        <p class="text-center text-emi-gold font-semibold mt-8 text-lg">
+          What if there was a better and safer way to carry out safety audits and inspections to solve all these issues? SafetyStatus is that solution.
+        </p>
+      </div>
+    </section>
+
+    <!-- Product Features -->
+    <section class="py-16 sm:py-24 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide mb-8">
+          How SafetyStatus Works
+        </h2>
+        <div class="space-y-6 text-gray-700">
+          <p>
+            Finally, a mobility-based software that prepares complex safety audit processes and procedures into easy-to-read and simple-to-follow structured tasks that flow with your work area.
+          </p>
+          <p>
+            SafetyStatus electronically maps out for an inspector what needs to be checked, when, and how. It also details any potential risks involved and what's required in the way of tools and permits, so nothing is missed. Images, videos and PDFs can also be used to support each task.
+          </p>
+          <p>
+            When an inspector spots an issue, it can be recorded electronically, risk-rated for future rectification priority, and images of the finding can be captured. This means any previously reported or outstanding findings can easily be viewed, edited, and the status of the work area updated.
+          </p>
+          <p>
+            Plus, technical questions are used as prompts to determine the actual condition of the work area. Any values that fall outside the min/max range automatically trigger a reporting process for the issue.
+          </p>
+          <p class="font-semibold text-gray-900">
+            SafetyStatus enables auditors and inspectors to perform their tasks to the standard expected by your company — safely, efficiently, and with purpose and value.
+          </p>
+          <p class="text-emi-gold font-semibold">
+            Now available on iPad.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="py-16 sm:py-24 bg-emi-gray">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+          Other Status Suite Products
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="rounded-xl border border-gray-200 bg-white p-6 hover:shadow-lg transition-shadow">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">ComponentStatus</h3>
+            <p class="text-sm text-emi-gold font-semibold mb-3">Component Rebuilds</p>
+            <p class="text-gray-700 text-sm mb-4">
+              Share complex work instructions for any task-based process simply and electronically. Each step clearly defines what the task is and how to do it.
+            </p>
+            <a href="/componentstatus" class="text-emi-gold font-semibold text-sm hover:underline">Learn More &rarr;</a>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-6 hover:shadow-lg transition-shadow">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">EquipmentStatus</h3>
+            <p class="text-sm text-emi-gold font-semibold mb-3">Equipment Compliance</p>
+            <p class="text-gray-700 text-sm mb-4">
+              Designed to support equipment condition compliance. Ideally suited for rental equipment return inspections and release compliance, or MDG15 equipment audits.
+            </p>
+            <a href="/contact" class="text-emi-gold font-semibold text-sm hover:underline">Request a Demo &rarr;</a>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-6 hover:shadow-lg transition-shadow">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">EnviroStatus</h3>
+            <p class="text-sm text-emi-gold font-semibold mb-3">Environmental Audits</p>
+            <p class="text-gray-700 text-sm mb-4">
+              Collect in-field data to monitor environmental condition and compliance requirements in near real-time.
+            </p>
+            <a href="/contact" class="text-emi-gold font-semibold text-sm hover:underline">Request a Demo &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 sm:py-24 bg-emi-black text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-wide mb-4">
+          Ready to Upgrade Your Safety Audits?
+        </h2>
+        <p class="text-gray-300 mb-8 text-lg">
+          Request a demo to see how SafetyStatus can transform your inspection processes.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contact"
+            class="px-8 py-3 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors"
+          >
+            Request a Demo
+          </a>
+          <a
+            href="/take-action"
+            class="px-8 py-3 border border-emi-gold text-emi-gold font-semibold rounded-lg hover:bg-emi-gold hover:text-white transition-colors"
+          >
+            Take Action
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

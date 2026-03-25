@@ -2,22 +2,41 @@
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
 const gaId = import.meta.env.PUBLIC_GA_ID;
+const siteUrl = Astro.site?.href || 'https://www.equipmentmanagement.com.au';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const {
   title,
   description = 'Complex digital work instructions, shared simply. Equipment Management International provides maintenance software for mining operations.',
+  ogImage = '/images/hero/mining-equipment.jpg',
 } = Astro.props;
+const ogImageUrl = new URL(ogImage, siteUrl).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content="Equipment Management International" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -36,6 +55,35 @@ const {
     <style is:global>
       @import '../styles/global.css';
     </style>
+
+    <!-- Google Analytics -->
+    {gaId && (
+      <script is:inline define:vars={{ gaId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', gaId);
+      </script>
+    )}
+    {gaId && <script is:inline src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} async />}
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Equipment Management International",
+      "url": siteUrl,
+      "description": "Complex digital work instructions, shared simply. Maintenance software for Tier 1 and 2 mining operations.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Burnie",
+        "addressRegion": "TAS",
+        "postalCode": "7320",
+        "addressCountry": "AU"
+      },
+      "foundingDate": "2005",
+      "areaServed": "Australia"
+    })} />
   </head>
   <body class="min-h-screen bg-white text-gray-900">
     <slot />

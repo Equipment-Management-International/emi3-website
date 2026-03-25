@@ -12,9 +12,26 @@ import Footer from '../components/Footer.astro';
 
 <Layout title="Equipment Management International — Complex Digital Work Instructions, Shared Simply">
   <Nav transparent />
-  <main>
+  <main id="top">
     <HeroSection />
     <ValueProp />
+
+    <!-- YouTube Video -->
+    <section class="py-16 sm:py-24 bg-emi-gray">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="aspect-video rounded-xl overflow-hidden shadow-lg">
+          <iframe
+            src="https://www.youtube.com/embed/xxhrqxrrCCI"
+            title="Equipment Management International"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            class="w-full h-full"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
     <Specialisations />
     <ProductGrid />
     <ProcessSteps />

@@ -23,7 +23,7 @@ const legalLinks = [
 ];
 ---
 
-<footer class="bg-emi-black text-white">
+<footer class="bg-yellow-400 text-gray-900">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
       <!-- Brand -->
@@ -32,21 +32,26 @@ const legalLinks = [
           <img
             src="/images/emi-logo.jpeg"
             alt="Equipment Management International"
-            class="h-10 w-auto brightness-0 invert"
+            class="h-10 w-auto"
           />
         </a>
-        <p class="text-sm text-gray-400">
+        <p class="text-sm text-gray-700 mb-3">
           Complex digital work instructions, shared simply. Serving Tier 1 and 2 mining operations since 2005.
         </p>
+        <div class="text-xs text-gray-600 space-y-1">
+          <p>Equipment Management International P/L</p>
+          <p>ABN 45 112 360 273</p>
+          <p>Burnie, TAS, 7320, Australia</p>
+        </div>
       </div>
 
       <!-- Products -->
       <div>
-        <h3 class="font-semibold text-white mb-4">Products</h3>
+        <h3 class="font-semibold text-gray-900 mb-4">Products</h3>
         <ul class="space-y-3">
           {productLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">
+              <a href={link.href} class="text-sm text-gray-700 hover:text-gray-900 transition-colors">
                 {link.label}
               </a>
             </li>
@@ -56,11 +61,11 @@ const legalLinks = [
 
       <!-- Company -->
       <div>
-        <h3 class="font-semibold text-white mb-4">Company</h3>
+        <h3 class="font-semibold text-gray-900 mb-4">Company</h3>
         <ul class="space-y-3">
           {companyLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">
+              <a href={link.href} class="text-sm text-gray-700 hover:text-gray-900 transition-colors">
                 {link.label}
               </a>
             </li>
@@ -70,11 +75,11 @@ const legalLinks = [
 
       <!-- Legal -->
       <div>
-        <h3 class="font-semibold text-white mb-4">Legal</h3>
+        <h3 class="font-semibold text-gray-900 mb-4">Legal</h3>
         <ul class="space-y-3">
           {legalLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">
+              <a href={link.href} class="text-sm text-gray-700 hover:text-gray-900 transition-colors">
                 {link.label}
               </a>
             </li>
@@ -83,8 +88,9 @@ const legalLinks = [
       </div>
     </div>
 
-    <div class="pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+    <div class="pt-8 border-t border-yellow-500 flex items-center justify-between text-xs text-gray-600">
       <p>&copy; {currentYear} Equipment Management International P/L. All rights reserved.</p>
+      <a href="#top" class="hover:text-gray-900 transition-colors">Back to Top &uarr;</a>
     </div>
   </div>
 </footer>

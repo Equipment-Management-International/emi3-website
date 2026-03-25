@@ -1,0 +1,228 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="RouteMaintenance — Equipment Management International">
+  <Nav />
+  <main class="pt-20">
+    <!-- Hero -->
+    <section class="bg-emi-black text-white py-16 sm:py-24 scroll-mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide mb-6">
+          RouteMaintenance Software
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Innovative and adaptable fixed plant maintenance software
+        </p>
+      </div>
+    </section>
+
+    <!-- A Simple Repeatable Process -->
+    <section class="py-16 sm:py-24 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide mb-8">
+          A Simple Repeatable Process
+        </h2>
+        <div class="space-y-6 text-gray-700 text-lg">
+          <p>
+            Is your team swamped in paper-based work orders and instruction material? Or do you have a workforce with varying levels of experience or plant knowledge?
+          </p>
+          <p>
+            RouteMaintenance electronically sets out for a technician what needs to be done, when, and how. It also details what's required in the way of tools, lubricant, parts, and permits, so nothing is missed. Images, videos and PDFs can also be used to support the steps of each task. The system clearly identifies any risks involved and when contamination control needs to be applied.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beyond Digital Instructions -->
+    <section class="py-16 sm:py-24 bg-emi-gray">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+          But We Take It Further Than Just Digital Instructions
+        </h2>
+        <div class="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {[
+            'Defect recording with risk-rating and image capture',
+            'Previously reported defect tracking and viewing',
+            'Technical questions as condition assessment prompts',
+            'Automatic defect triggering for out-of-range values',
+            'Sensory-Based Data integration',
+            'Real-time plant condition determination through sensory prompts (see, hear, smell, touch)',
+          ].map((feature) => (
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-emi-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <p class="text-gray-700">{feature}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Common Site Problems -->
+    <section class="py-16 sm:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-4">
+          RouteMaintenance Addresses Many Fixed Plant Issues
+        </h2>
+        <p class="text-gray-600 text-center max-w-3xl mx-auto mb-12">
+          Many mining and processing sites struggle with similar issues when it comes to fixed plant maintenance. Do any of these common site problems sound familiar?
+        </p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          {[
+            'Poor skill levels and competencies',
+            'Poor quality repairs and servicing practices',
+            'Poor defect identification & management',
+            'Poor data collection methods',
+            'Poor turnaround times of servicing and repairs',
+            'Poor customer (operations) relationships',
+            'Poor presentation of end product',
+            'Poor process controls and management',
+            'Poor resource management',
+            'Poor identification of skills required',
+            'Poor planning and scheduling methods',
+            'Poor condition monitoring analysis',
+            'Poor safety standards at task level',
+            'Poor availability of information at task level',
+            'Poor understanding of task purpose or procedures',
+            'Over servicing and under servicing of equipment',
+            'Loss of knowledge through high staff turnover',
+            'High maintenance and management costs',
+            'Poor equipment reliability and availability',
+            'Lack of standards and set expectations',
+            'Lack of focus on reducing waste',
+            'Lack of change management successes',
+            'Lack of standard practices between sites',
+            'Poor inventory control',
+          ].map((issue) => (
+            <div class="flex items-start gap-2 text-sm">
+              <svg class="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+              <span class="text-gray-700">{issue}</span>
+            </div>
+          ))}
+        </div>
+        <p class="text-center text-emi-gold font-semibold mt-8 text-lg">
+          The good news — all these issues can be addressed with RouteMaintenance.
+        </p>
+      </div>
+    </section>
+
+    <!-- Route Definition -->
+    <section class="py-16 sm:py-24 bg-emi-charcoal text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-wide mb-8">
+          Eliminate Paper-Based Packs with Software Designed for In-Field Inspections
+        </h2>
+        <div class="space-y-6 text-gray-300">
+          <p>
+            A route is a defined path specific to a list of inspection tasks that need to be checked at regular intervals. Generally, routes have already been developed in a paper format. Inspection intervals have already been set up, and maintenance teams carry out the processes in some form.
+          </p>
+          <p>
+            RouteMaintenance offers your maintenance team necessary information electronically at the time of each defined task. The amount of routes you can develop is limitless.
+          </p>
+          <p class="text-emi-gold font-semibold italic">
+            "Software designed specifically for in the field audits and inspections. Eliminating paper based work packs."
+          </p>
+          <p>
+            RouteMaintenance could be integrated seamlessly with your CMMS (for example, SAP).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- iPad Section -->
+    <section class="py-16 sm:py-24 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide mb-6">
+          iPad Software
+        </h2>
+        <p class="text-lg text-gray-700 mb-8">
+          Amazing new screens and improved user experience — the iPad software is changing the way maintenance is being executed in fixed plant maintenance.
+        </p>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Creating a Simple Process That's Repeatable and Efficient</h3>
+        <p class="text-gray-700">
+          When it comes to fixed plant maintenance, what's important is having a process that can be repeated, time and again, autonomously and always to the same level of accuracy. RouteMaintenance is designed to eliminate wasted time and effort within the scheduled servicing process and inspections of any fixed plant. Plus, it's simple to implement in plants of any size.
+        </p>
+      </div>
+    </section>
+
+    <!-- Implementation Expectations -->
+    <section class="py-16 sm:py-24 bg-emi-gray">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide mb-8">
+          What Can You Expect with RouteMaintenance?
+        </h2>
+        <div class="space-y-6 text-gray-700">
+          <p>
+            Results are entirely dependent on your needs and business requirements. Substantial site results don't come about from big changes. They happen because the management team is committed to long term improvements, and they effectively support the evolution of simple workplace habits.
+          </p>
+          <p>If your company:</p>
+          <ol class="list-decimal list-inside space-y-2 ml-4">
+            <li>Needs to make a serious adjustment to improve</li>
+            <li>This need outweighs any potential resistance to change</li>
+            <li>The change will benefit all levels of your workforce</li>
+          </ol>
+          <p>
+            It's entirely possible to quickly achieve <strong class="text-emi-gold">30-40% improvements</strong> across your combined servicing timeframes.
+          </p>
+          <p>
+            We work closely with your team and communicate with all levels. We take the time to explain what can be achieved and what the system and process are about. The thing that sets RouteMaintenance apart is its ability to blend with your site environment and requirements seamlessly. It's more than just a flexible software system — it becomes a methodology and defined process for effective execution.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="py-16 sm:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-8">
+          Related Product
+        </h2>
+        <div class="max-w-xl mx-auto">
+          <div class="rounded-xl border border-gray-200 bg-white p-8 hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">ZoneMaintenance</h3>
+            <p class="text-sm text-emi-gold font-semibold mb-4">Mobile Equipment Maintenance</p>
+            <p class="text-gray-700 mb-6">
+              Streamline your maintenance processes for mobile equipment when safety, quality, and efficient turnaround is essential.
+            </p>
+            <a
+              href="/zonemaintenance"
+              class="inline-flex items-center px-6 py-2.5 border border-emi-gold text-emi-gold font-semibold rounded-lg hover:bg-emi-gold hover:text-white transition-colors text-sm"
+            >
+              Learn More
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 sm:py-24 bg-emi-black text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-wide mb-4">
+          Ready to Transform Your Fixed Plant Maintenance?
+        </h2>
+        <p class="text-gray-300 mb-8 text-lg">
+          Try our demo version or get in touch to discuss how RouteMaintenance can streamline your operations.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contact"
+            class="px-8 py-3 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors"
+          >
+            Contact Us
+          </a>
+          <a
+            href="/take-action"
+            class="px-8 py-3 border border-emi-gold text-emi-gold font-semibold rounded-lg hover:bg-emi-gold hover:text-white transition-colors"
+          >
+            Take Action
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

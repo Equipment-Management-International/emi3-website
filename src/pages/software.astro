@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Maintenance Software Suite — Equipment Management International">
+  <Nav />
+  <main class="pt-20">
+    <!-- Hero -->
+    <section class="bg-emi-charcoal text-white py-16 sm:py-24 scroll-mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide mb-6">
+          Maintenance Software Suite
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Specialised maintenance software that's designed and built by tradesmen who've been on the tools and across management
+        </p>
+      </div>
+    </section>
+
+    <!-- Opening -->
+    <section class="py-16 sm:py-24 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-lg text-gray-700 mb-8">
+          Let's be honest. There are plenty of common issues with fixed and mobile maintenance that lead to wasted time and effort. Our maintenance software suite addresses these problems head-on with purpose-built solutions.
+        </p>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-16 sm:py-24 bg-emi-gray">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+          Key Features
+        </h2>
+        <div class="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {[
+            'Converts paper PM service sheets to mobility-based software for paperless workflows',
+            'Electronically records defects, findings, oil and water leaks',
+            'Increases workforce autonomy, accountability, and precision',
+            'Incorporates sensory-based data collection for asset health monitoring',
+            'Delivers real-time feedback and analytics',
+            'Supports job status visibility across teams',
+            'Improves asset condition awareness to prevent catastrophic failures',
+            'Delivers measurable improvements in efficiency, uptime, and compliance',
+          ].map((feature) => (
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-emi-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <p class="text-gray-700">{feature}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Cards -->
+    <section class="py-16 sm:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+          Our Maintenance Products
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <!-- ZoneMaintenance -->
+          <div class="rounded-xl border border-gray-200 bg-white p-8 hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">ZoneMaintenance</h3>
+            <p class="text-sm text-emi-gold font-semibold mb-4">Mobile Equipment Maintenance</p>
+            <p class="text-gray-700 mb-4">
+              Streamline your maintenance processes for mobile equipment when safe, high quality, and efficient turnaround is essential. ZoneMaintenance offers a simple and repeatable method of servicing mobile mining equipment using a defined process.
+            </p>
+            <p class="text-sm text-gray-500 mb-6">Designed for:</p>
+            <ul class="text-sm text-gray-600 space-y-1 mb-6">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                PM servicing to mobile equipment
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Component removal and replacement
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Component strip down and assembly
+              </li>
+            </ul>
+            <a
+              href="/zonemaintenance"
+              class="inline-flex items-center px-6 py-2.5 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors text-sm"
+            >
+              Learn More
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+
+          <!-- RouteMaintenance -->
+          <div class="rounded-xl border border-gray-200 bg-white p-8 hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">RouteMaintenance</h3>
+            <p class="text-sm text-emi-gold font-semibold mb-4">Fixed Plant Maintenance</p>
+            <p class="text-gray-700 mb-4">
+              Focus on efficient, clearly defined, and repeatable methods for carrying out periodic inspections of fixed plant facilities. Ideal for teams managing paper-based work orders with inconsistent workforce experience levels.
+            </p>
+            <p class="text-sm text-gray-500 mb-6">Designed for:</p>
+            <ul class="text-sm text-gray-600 space-y-1 mb-6">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                PM servicing and inspections
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Critical asset compliance inspections
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Hazardous environment inspections
+              </li>
+            </ul>
+            <a
+              href="/routemaintenance"
+              class="inline-flex items-center px-6 py-2.5 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors text-sm"
+            >
+              Learn More
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Note -->
+    <section class="py-12 bg-emi-black text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-gray-300">
+          All our software applications are owned by EMI and developed in-house in Australia.
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

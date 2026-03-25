@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { getClient } from '../lib/contentful';
+import { renderRichText } from '../lib/rich-text';
+import type { PageSkeleton } from '../lib/contentful-types';
+
+export async function getStaticPaths() {
+  const client = getClient();
+  if (!client) return [];
+
+  try {
+    const entries = await client.getEntries<PageSkeleton>({
+      content_type: 'page',
+      limit: 100,
+    });
+
+    return entries.items.map((entry) => ({
+      params: { slug: entry.fields.slug },
+      props: { page: entry },
+    }));
+  } catch {
+    // Content type may not exist yet — return empty paths
+    return [];
+  }
+}
+
+const { page } = Astro.props;
+const { title, metaDescription, heroHeading, heroImage, body } = page.fields;
+
+const heroImageUrl = heroImage?.fields?.file?.url
+  ? heroImage.fields.file.url.startsWith('//')
+    ? `https:${heroImage.fields.file.url}`
+    : heroImage.fields.file.url
+  : null;
+
+const bodyHtml = body ? renderRichText(body) : '';
+---
+
+<Layout title={`${title} — Equipment Management International`} description={metaDescription}>
+  <Nav transparent={!!heroImageUrl} />
+  <main id="top" class={heroImageUrl ? '' : 'pt-20'}>
+    <!-- Hero -->
+    <section class:list={[
+      'relative py-16 sm:py-24 flex items-center',
+      heroImageUrl ? 'min-h-[40vh]' : 'bg-emi-charcoal',
+    ]}>
+      {heroImageUrl && (
+        <div class="absolute inset-0">
+          <img src={heroImageUrl} alt="" class="absolute inset-0 w-full h-full object-cover brightness-50" />
+        </div>
+      )}
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white uppercase tracking-wide">
+          {heroHeading || title}
+        </h1>
+      </div>
+    </section>
+
+    <!-- Body -->
+    <section class="py-16 sm:py-24 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose-container">
+        <Fragment set:html={bodyHtml} />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
