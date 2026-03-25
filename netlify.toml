@@ -4,6 +4,8 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  # Space ID appears in Contentful CDN asset URLs — not a secret
+  SECRETS_SCAN_OMIT_KEYS = "CONTENTFUL_SPACE_ID"
 
 # SPA fallback for unmatched routes
 [[redirects]]
