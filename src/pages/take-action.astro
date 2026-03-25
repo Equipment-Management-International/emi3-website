@@ -6,33 +6,33 @@ import Footer from '../components/Footer.astro';
 
 <Layout title="Take Action — Equipment Management International">
   <Nav />
-  <main class="pt-20">
+  <main id="top" class="pt-20">
     <!-- Hero with Quote -->
-    <section class="bg-emi-black text-white py-16 sm:py-24 scroll-mt-20">
+    <section class="bg-neutral text-neutral-content py-16 sm:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <blockquote class="max-w-3xl mx-auto">
           <p class="text-2xl sm:text-3xl lg:text-4xl font-bold italic mb-6">
             "You don't have to be great to start, you have to start to be great"
           </p>
-          <cite class="text-emi-gold font-semibold text-lg not-italic">— Zig Ziglar</cite>
+          <cite class="text-primary font-semibold text-lg not-italic">— Zig Ziglar</cite>
         </blockquote>
       </div>
     </section>
 
     <!-- Site Review Description -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide mb-8">
+        <h2 class="section-heading mb-8">
           Site Review
         </h2>
-        <div class="space-y-6 text-gray-700 text-lg">
+        <div class="space-y-6 prose-body">
           <p>
             Many organisations seek cost reduction and efficiency improvements within maintenance departments. We help clients understand how their maintenance team operates, identify the root causes of problems, and pinpoint critical focus areas.
           </p>
           <p>
             Managers often find themselves consumed by day-to-day operations rather than strategic planning, missing visibility into actual team performance and underlying issues.
           </p>
-          <p class="font-semibold text-gray-900 border-l-4 border-emi-gold pl-6">
+          <p class="font-semibold text-base-content border-l-4 border-primary pl-6">
             Our approach is direct, fact based and the findings can be confronting.
           </p>
         </div>
@@ -40,18 +40,18 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Methodology -->
-    <section class="py-16 sm:py-24 bg-emi-gray">
+    <section class="py-16 sm:py-24 bg-base-200">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide mb-4">
+        <h2 class="section-heading mb-4">
           How We Do It
         </h2>
-        <p class="text-emi-gold font-semibold text-lg mb-8">
+        <p class="text-primary font-semibold text-lg mb-8">
           Approximately 5-7 days onsite
         </p>
 
         <div class="grid sm:grid-cols-2 gap-8 mb-10">
           <div>
-            <h3 class="text-lg font-bold text-gray-900 mb-4">Activities Include:</h3>
+            <h3 class="section-subheading mb-4">Activities Include:</h3>
             <ul class="space-y-3">
               {[
                 'Study maintenance operation methods and fundamentals',
@@ -60,22 +60,22 @@ import Footer from '../components/Footer.astro';
                 'Review facilities, systems, and procedures',
               ].map((activity) => (
                 <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-emi-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                  <span class="text-gray-700">{activity}</span>
+                  <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span class="text-base">{activity}</span>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 class="text-lg font-bold text-gray-900 mb-4">Deliverables:</h3>
+            <h3 class="section-subheading mb-4">Deliverables:</h3>
             <ul class="space-y-3">
               {[
                 'Presentation of findings before departure',
                 'Comprehensive report with implementation solutions',
               ].map((deliverable) => (
                 <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-emi-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                  <span class="text-gray-700">{deliverable}</span>
+                  <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                  <span class="text-base">{deliverable}</span>
                 </li>
               ))}
             </ul>
@@ -85,9 +85,9 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- 15 Focus Areas -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+        <h2 class="section-heading text-center mb-12">
           Focus Areas
         </h2>
         <div class="grid sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
@@ -108,8 +108,10 @@ import Footer from '../components/Footer.astro';
             'Environmental Constraints',
             'Maintenance Management Maturity',
           ].map((area) => (
-            <div class="rounded-xl bg-emi-gray border border-gray-200 p-4 text-center hover:border-emi-gold transition-colors">
-              <p class="text-sm font-semibold text-gray-700">{area}</p>
+            <div class="card bg-base-200 hover:border-primary border border-base-300 transition-colors">
+              <div class="card-body p-4 items-center text-center">
+                <p class="text-base font-semibold">{area}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -117,18 +119,15 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- CTA -->
-    <section class="py-16 sm:py-24 bg-emi-black text-white">
+    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-wide mb-4">
+        <h2 class="section-heading text-neutral-content mb-4">
           Ready to Take That First Step?
         </h2>
-        <p class="text-gray-300 mb-8 text-lg">
+        <p class="text-neutral-content/80 mb-8 text-lg">
           Contact us today to discuss a Site Review and start the journey to better maintenance outcomes.
         </p>
-        <a
-          href="/contact"
-          class="inline-flex items-center px-8 py-3 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors"
-        >
+        <a href="/contact" class="btn btn-primary btn-lg">
           Contact Us
         </a>
       </div>

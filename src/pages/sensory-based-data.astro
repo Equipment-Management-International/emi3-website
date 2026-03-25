@@ -6,26 +6,34 @@ import Footer from '../components/Footer.astro';
 
 <Layout title="Sensory Based Data — Equipment Management International">
   <Nav />
-  <main class="pt-20">
-    <!-- Hero -->
-    <section class="bg-emi-black text-white py-16 sm:py-24 scroll-mt-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide mb-6">
+  <main id="top" class="pt-20">
+    <!-- Hero with background image -->
+    <section class="relative min-h-[50vh] flex items-center overflow-hidden">
+      <div class="absolute inset-0">
+        <img
+          src="/images/hero/sensory-data.jpg"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-24 w-full">
+        <h1 class="text-3xl sm:text-4xl font-bold text-white mb-6 hero-text-shadow">
           Sensory Based Data
         </h1>
-        <p class="text-2xl text-emi-gold font-semibold">
+        <p class="text-2xl text-primary font-semibold hero-text-shadow">
           The Missing Link
         </p>
       </div>
     </section>
 
     <!-- Evolution of Maintenance -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide mb-8">
+        <h2 class="section-heading mb-8">
           The Evolution of Maintenance Practices
         </h2>
-        <div class="space-y-6 text-gray-700 text-lg">
+        <div class="space-y-6 prose-body">
           <p>
             Decades ago, mining maintenance was reactive — fixing equipment only after it broke. The introduction of preventative maintenance and sensor technologies improved productivity significantly. However, gaps in defect reporting persist.
           </p>
@@ -37,77 +45,83 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- The Missing Link -->
-    <section class="py-16 sm:py-24 bg-emi-charcoal text-white">
+    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-wide mb-8">
+        <h2 class="section-heading text-neutral-content mb-8">
           Bridging the Gap: The Missing Link
         </h2>
-        <p class="text-lg text-gray-300 max-w-3xl mx-auto">
-          A system integrating <span class="text-emi-gold font-semibold">sensory based data</span> — what technicians see, hear, smell, and touch — with the sensor-based data collected automatically. This combination creates a comprehensive view of asset health that neither data source can provide alone.
+        <p class="text-lg text-neutral-content/80 max-w-3xl mx-auto">
+          A system integrating <span class="text-primary font-semibold">sensory based data</span> — what technicians see, hear, smell, and touch — with the sensor-based data collected automatically. This combination creates a comprehensive view of asset health that neither data source can provide alone.
         </p>
       </div>
     </section>
 
     <!-- Why Sensory Data Matters -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+        <h2 class="section-heading text-center mb-4">
           Why Sensory-Based Data Matters
         </h2>
-        <p class="text-gray-700 text-center max-w-3xl mx-auto mb-8">
+        <p class="prose-body text-center max-w-3xl mx-auto mb-12">
           Field technicians detect failure signs that sensors cannot, including:
         </p>
         <div class="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div class="rounded-xl border border-gray-200 bg-white p-8 text-center hover:shadow-lg transition-shadow">
-            <div class="w-16 h-16 rounded-full bg-emi-gold/10 flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+          <div class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+            <div class="card-body items-center text-center">
+              <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+              </div>
+              <h3 class="section-subheading mt-2">Hear</h3>
+              <p class="text-base">Unusual noises indicating bearing wear or component failure</p>
             </div>
-            <h3 class="font-bold text-gray-900 mb-2">Hear</h3>
-            <p class="text-gray-600 text-sm">Unusual noises indicating bearing wear or component failure</p>
           </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-8 text-center hover:shadow-lg transition-shadow">
-            <div class="w-16 h-16 rounded-full bg-emi-gold/10 flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <div class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+            <div class="card-body items-center text-center">
+              <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+              <h3 class="section-subheading mt-2">Feel</h3>
+              <p class="text-base">Subtle vibrations pointing to misalignment or imbalance</p>
             </div>
-            <h3 class="font-bold text-gray-900 mb-2">Feel</h3>
-            <p class="text-gray-600 text-sm">Subtle vibrations pointing to misalignment or imbalance</p>
           </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-8 text-center hover:shadow-lg transition-shadow">
-            <div class="w-16 h-16 rounded-full bg-emi-gold/10 flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg>
+          <div class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+            <div class="card-body items-center text-center">
+              <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg>
+              </div>
+              <h3 class="section-subheading mt-2">Smell</h3>
+              <p class="text-base">Odours signalling overheating or contamination</p>
             </div>
-            <h3 class="font-bold text-gray-900 mb-2">Smell</h3>
-            <p class="text-gray-600 text-sm">Odours signalling overheating or contamination</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 3-Step Digital Integration -->
-    <section class="py-16 sm:py-24 bg-emi-gray">
+    <section class="py-16 sm:py-24 bg-base-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+        <h2 class="section-heading text-center mb-12">
           The Solution: Digital Tools for Real-Time Integration
         </h2>
         <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <div class="relative">
-            <div class="w-12 h-12 rounded-full bg-emi-gold text-white flex items-center justify-center font-bold text-xl mb-4">1</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-3">In-Field Data Collection</h3>
-            <p class="text-gray-700">
+            <div class="w-12 h-12 rounded-full bg-primary text-primary-content flex items-center justify-center font-bold text-xl mb-4">1</div>
+            <h3 class="section-subheading mb-3">In-Field Data Collection</h3>
+            <p class="prose-body">
               Technicians use mobile devices to record observations during inspections — what they see, hear, smell, and touch.
             </p>
           </div>
           <div class="relative">
-            <div class="w-12 h-12 rounded-full bg-emi-gold text-white flex items-center justify-center font-bold text-xl mb-4">2</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-3">Integrated Defect Reporting</h3>
-            <p class="text-gray-700">
+            <div class="w-12 h-12 rounded-full bg-primary text-primary-content flex items-center justify-center font-bold text-xl mb-4">2</div>
+            <h3 class="section-subheading mb-3">Integrated Defect Reporting</h3>
+            <p class="prose-body">
               Observations are automatically logged into the CMMS, eliminating paper trails and lost information.
             </p>
           </div>
           <div class="relative">
-            <div class="w-12 h-12 rounded-full bg-emi-gold text-white flex items-center justify-center font-bold text-xl mb-4">3</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-3">Correlated Data Analysis</h3>
-            <p class="text-gray-700">
+            <div class="w-12 h-12 rounded-full bg-primary text-primary-content flex items-center justify-center font-bold text-xl mb-4">3</div>
+            <h3 class="section-subheading mb-3">Correlated Data Analysis</h3>
+            <p class="prose-body">
               Combining sensory and sensor data provides a comprehensive view of asset health for better decision-making.
             </p>
           </div>
@@ -116,44 +130,50 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Benefits -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+        <h2 class="section-heading text-center mb-12">
           The Benefits of a Unified System
         </h2>
         <div class="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div class="text-center">
-            <div class="w-16 h-16 rounded-full bg-emi-gold/10 flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <div class="card bg-base-100 shadow-md">
+            <div class="card-body items-center text-center">
+              <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              </div>
+              <h3 class="section-subheading mt-2">Identify Hidden Defects</h3>
+              <p class="text-base">Before they escalate into costly failures</p>
             </div>
-            <h3 class="font-bold text-gray-900 mb-2">Identify Hidden Defects</h3>
-            <p class="text-gray-600 text-sm">Before they escalate into costly failures</p>
           </div>
-          <div class="text-center">
-            <div class="w-16 h-16 rounded-full bg-emi-gold/10 flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          <div class="card bg-base-100 shadow-md">
+            <div class="card-body items-center text-center">
+              <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              </div>
+              <h3 class="section-subheading mt-2">Improve Decision-Making</h3>
+              <p class="text-base">With a complete asset health picture</p>
             </div>
-            <h3 class="font-bold text-gray-900 mb-2">Improve Decision-Making</h3>
-            <p class="text-gray-600 text-sm">With a complete asset health picture</p>
           </div>
-          <div class="text-center">
-            <div class="w-16 h-16 rounded-full bg-emi-gold/10 flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          <div class="card bg-base-100 shadow-md">
+            <div class="card-body items-center text-center">
+              <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              </div>
+              <h3 class="section-subheading mt-2">Reduce Downtime & Costs</h3>
+              <p class="text-base">Through proactive maintenance strategies</p>
             </div>
-            <h3 class="font-bold text-gray-900 mb-2">Reduce Downtime & Costs</h3>
-            <p class="text-gray-600 text-sm">Through proactive maintenance strategies</p>
           </div>
         </div>
-        <p class="text-gray-700 text-center max-w-3xl mx-auto mt-10">
+        <p class="prose-body text-center max-w-3xl mx-auto mt-10">
           When all these pieces of information are aligned with other sources, the picture is full and clear, which means more effective decisions can be made.
         </p>
       </div>
     </section>
 
     <!-- Proven Tools -->
-    <section class="py-16 sm:py-24 bg-emi-gray">
+    <section class="py-16 sm:py-24 bg-base-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+        <h2 class="section-heading text-center mb-12">
           Proven Tools for the Mining Industry
         </h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -164,9 +184,11 @@ import Footer from '../components/Footer.astro';
             { name: 'SafetyStatus', desc: 'Safety audits & inspections', href: '/safetystatus' },
             { name: 'EnviroStatus', desc: 'Environmental assessments', href: '/contact' },
           ].map((product) => (
-            <a href={product.href} class="rounded-xl border border-gray-200 bg-white p-6 hover:shadow-lg transition-shadow block">
-              <h3 class="font-bold text-gray-900 mb-1">{product.name}</h3>
-              <p class="text-gray-600 text-sm">{product.desc}</p>
+            <a href={product.href} class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+              <div class="card-body">
+                <h3 class="card-title text-base">{product.name}</h3>
+                <p class="text-base text-base-content/70">{product.desc}</p>
+              </div>
             </a>
           ))}
         </div>
@@ -174,25 +196,19 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- CTA -->
-    <section class="py-16 sm:py-24 bg-emi-black text-white">
+    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-wide mb-4">
+        <h2 class="section-heading text-neutral-content mb-4">
           Take the Next Step
         </h2>
-        <p class="text-gray-300 mb-8 text-lg">
+        <p class="text-neutral-content/80 mb-8 text-lg">
           Stay ahead in today's competitive mining landscape. It's essential to adopt a digitalisation strategy that combines sensor and sensory data.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/contact"
-            class="px-8 py-3 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors"
-          >
+          <a href="/contact" class="btn btn-primary btn-lg">
             Contact Us Today
           </a>
-          <a
-            href="/take-action"
-            class="px-8 py-3 border border-emi-gold text-emi-gold font-semibold rounded-lg hover:bg-emi-gold hover:text-white transition-colors"
-          >
+          <a href="/take-action" class="btn btn-outline btn-primary btn-lg">
             Take Action
           </a>
         </div>

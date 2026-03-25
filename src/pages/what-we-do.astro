@@ -6,15 +6,23 @@ import Footer from '../components/Footer.astro';
 
 <Layout title="What We Do — Equipment Management International">
   <Nav />
-  <main class="pt-20">
-    <!-- Hero with Quote -->
-    <section class="bg-emi-charcoal text-white py-16 sm:py-24 scroll-mt-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide mb-6">
+  <main id="top" class="pt-20">
+    <!-- Hero with background image -->
+    <section class="relative min-h-[50vh] flex items-center overflow-hidden">
+      <div class="absolute inset-0">
+        <img
+          src="/images/hero/what-we-do.jpg"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-24 w-full">
+        <h1 class="text-3xl sm:text-4xl font-bold text-white mb-6 hero-text-shadow">
           What We Do
         </h1>
         <blockquote class="max-w-3xl mx-auto">
-          <p class="text-xl sm:text-2xl italic text-gray-300">
+          <p class="text-xl sm:text-2xl italic text-white/90 hero-text-shadow">
             "Your philosophy defines your attitude which determines your actions, which creates your results"
           </p>
         </blockquote>
@@ -22,9 +30,9 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Main Content -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="prose prose-lg max-w-none space-y-6 text-gray-700">
+        <div class="space-y-6 prose-body">
           <p>
             If you don't have the right philosophy within your operation, you will not generate the results you're expecting. As the quote indicates, the wrong philosophy gives the wrong attitude which limits action and effects your results.
           </p>
@@ -52,72 +60,79 @@ import Footer from '../components/Footer.astro';
         </div>
 
         <div class="mt-10">
-          <a
-            href="/take-action"
-            class="inline-flex items-center px-8 py-3 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors"
-          >
+          <a href="/take-action" class="btn btn-primary btn-lg">
             Take that Step
-            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
       </div>
     </section>
 
     <!-- Featured Quote -->
-    <section class="py-16 sm:py-24 bg-emi-gray">
+    <section class="py-16 sm:py-24 bg-base-200">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <blockquote>
-          <p class="text-xl sm:text-2xl italic text-gray-700 mb-4">
+          <p class="text-xl sm:text-2xl italic text-base-content/80 mb-4">
             "If you look at history, innovation doesn't come just from giving people incentives; it comes from creating environments where their ideas can connect"
           </p>
-          <cite class="text-emi-gold font-semibold not-italic">— Steven Johnson, author</cite>
+          <cite class="text-primary font-semibold not-italic">— Steven Johnson, author</cite>
         </blockquote>
       </div>
     </section>
 
     <!-- Results Section -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+        <h2 class="section-heading text-center mb-12">
           What Our Clients Achieved
         </h2>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          <div class="rounded-xl border border-gray-200 bg-white p-8 text-center hover:shadow-lg transition-shadow">
-            <div class="text-4xl font-bold text-emi-gold mb-2">40%</div>
-            <p class="text-gray-700">Reduction in unplanned downtime events</p>
+          <!-- Stat cards using DaisyUI stat component -->
+          <div class="stats shadow bg-base-100">
+            <div class="stat text-center">
+              <div class="stat-value text-primary">40%</div>
+              <div class="stat-desc text-base mt-2">Reduction in unplanned downtime events</div>
+            </div>
           </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-8 text-center hover:shadow-lg transition-shadow">
-            <div class="text-4xl font-bold text-emi-gold mb-2">30%+</div>
-            <p class="text-gray-700">Decrease in PM service times</p>
+          <div class="stats shadow bg-base-100">
+            <div class="stat text-center">
+              <div class="stat-value text-primary">30%+</div>
+              <div class="stat-desc text-base mt-2">Decrease in PM service times</div>
+            </div>
           </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-8 text-center hover:shadow-lg transition-shadow">
-            <div class="text-4xl font-bold text-emi-gold mb-2">3 months</div>
-            <p class="text-gray-700">To reach global MTBF benchmarks for Jumbos</p>
+          <div class="stats shadow bg-base-100">
+            <div class="stat text-center">
+              <div class="stat-value text-primary text-3xl">3 months</div>
+              <div class="stat-desc text-base mt-2">To reach global MTBF benchmarks for Jumbos</div>
+            </div>
           </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-8 text-center hover:shadow-lg transition-shadow">
-            <svg class="w-10 h-10 text-emi-gold mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <p class="text-gray-700">Massive reductions in maintenance costs</p>
+          <div class="card bg-base-100 shadow">
+            <div class="card-body items-center text-center">
+              <svg class="w-10 h-10 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <p class="text-base">Massive reductions in maintenance costs</p>
+            </div>
           </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-8 text-center hover:shadow-lg transition-shadow">
-            <svg class="w-10 h-10 text-emi-gold mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <p class="text-gray-700">PM Services completed without downtime</p>
+          <div class="card bg-base-100 shadow">
+            <div class="card-body items-center text-center">
+              <svg class="w-10 h-10 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <p class="text-base">PM Services completed without downtime</p>
+            </div>
           </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-8 text-center hover:shadow-lg transition-shadow">
-            <svg class="w-10 h-10 text-emi-gold mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-            <p class="text-gray-700">Reduction in fleet numbers required</p>
+          <div class="card bg-base-100 shadow">
+            <div class="card-body items-center text-center">
+              <svg class="w-10 h-10 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              <p class="text-base">Reduction in fleet numbers required</p>
+            </div>
           </div>
         </div>
 
-        <p class="text-lg text-gray-700 text-center max-w-3xl mx-auto mb-10">
+        <p class="prose-body text-center max-w-3xl mx-auto mb-10">
           There are smart Asset Managers that know they have issues and put their hand up for help — and there are others that aren't.
         </p>
 
         <div class="text-center">
-          <a
-            href="/contact"
-            class="inline-flex items-center px-8 py-3 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors"
-          >
+          <a href="/contact" class="btn btn-primary btn-lg">
             Contact Us
           </a>
         </div>

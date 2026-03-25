@@ -8,44 +8,56 @@ import Footer from '../components/Footer.astro';
   <Nav />
   <main class="pt-20">
     <!-- Hero -->
-    <section class="bg-emi-black text-white py-16 sm:py-24 scroll-mt-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide mb-6">
-          ZoneMaintenance Software
-        </h1>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-          Advanced and flexible mobile mining equipment maintenance software
-        </p>
+    <section class="bg-neutral text-neutral-content py-16 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <div class="flex-1 text-center md:text-left">
+            <h1 class="text-3xl sm:text-4xl font-bold mb-4">
+              ZoneMaintenance Software
+            </h1>
+            <p class="text-lg text-neutral-content/80 max-w-2xl">
+              Advanced and flexible mobile mining equipment maintenance software
+            </p>
+          </div>
+          <div class="flex-shrink-0">
+            <img src="/images/products/zone-maintenance-logo.jpg" alt="ZoneMaintenance logo" class="h-24 sm:h-32 rounded-lg" />
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- A Simple Repeatable Process -->
-    <section class="py-16 sm:py-24 bg-white">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide mb-8">
-          A Simple Repeatable Process
-        </h2>
-        <div class="space-y-6 text-gray-700 text-lg">
-          <p>
-            Do you have declining fleet reliability or long turnaround servicing and repair times? Or is your maintenance team swamped in paper-based service sheets?
-          </p>
-          <p>
-            Our powerful and innovative software options improve efficiency and safety — no matter the level of employee experience.
-          </p>
-          <p>
-            ZoneMaintenance electronically sets out for a technician what needs to be done, when, and how. It also details requirements for tools, lubricant, parts and permits. Images, videos and PDFs can be used to support task steps. The system clearly identifies any risks involved and when contamination control needs to be applied.
-          </p>
+    <section class="py-16 sm:py-24 bg-base-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="section-heading mb-6">A Simple Repeatable Process</h2>
+            <div class="space-y-4 prose-body">
+              <p>
+                Do you have declining fleet reliability or long turnaround servicing and repair times? Or is your maintenance team swamped in paper-based service sheets?
+              </p>
+              <p>
+                Our powerful and innovative software options improve efficiency and safety — no matter the level of employee experience.
+              </p>
+              <p>
+                ZoneMaintenance electronically sets out for a technician what needs to be done, when, and how. It also details requirements for tools, lubricant, parts and permits. Images, videos and PDFs can be used to support task steps. The system clearly identifies any risks involved and when contamination control needs to be applied.
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <img src="/images/products/zonemaintenance-ipad.jpg" alt="ZoneMaintenance iPad interface" class="rounded-xl shadow-lg max-w-sm w-full" />
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Beyond Digital Instructions -->
-    <section class="py-16 sm:py-24 bg-emi-gray">
+    <section class="py-16 sm:py-24 bg-base-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+        <h2 class="section-heading text-center mb-12">
           But We Take It Much Further Than Just Digital Instructions
         </h2>
-        <div class="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {[
             'Defect recording with risk-rating for future repair priority',
             'Images of the defect can be captured',
@@ -56,9 +68,9 @@ import Footer from '../components/Footer.astro';
             'Technicians can record what they see, hear, smell, and touch',
             'Simple to adopt and manage, user-friendly and designed to work with your workforce',
           ].map((feature) => (
-            <div class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-emi-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <p class="text-gray-700">{feature}</p>
+            <div class="flex items-start gap-3 p-4">
+              <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <p class="text-base">{feature}</p>
             </div>
           ))}
         </div>
@@ -66,15 +78,15 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Common Site Problems -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-4">
+        <h2 class="section-heading text-center mb-4">
           ZoneMaintenance Addresses Many Mobile Plant Issues
         </h2>
-        <p class="text-gray-600 text-center max-w-3xl mx-auto mb-12">
+        <p class="prose-body text-center max-w-3xl mx-auto mb-12">
           Research shows that many mining sites struggle with similar issues, particularly when it comes to mobile plant maintenance. Do any of these common site problems sound familiar?
         </p>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto">
           {[
             'Poor skill levels and competencies',
             'Poor quality repairs and servicing practices',
@@ -101,23 +113,23 @@ import Footer from '../components/Footer.astro';
             'Lack of standard practices between sites',
             'Poor inventory control',
           ].map((issue) => (
-            <div class="flex items-start gap-2 text-sm">
-              <svg class="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
-              <span class="text-gray-700">{issue}</span>
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-error flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+              <span class="text-base">{issue}</span>
             </div>
           ))}
         </div>
-        <p class="text-center text-emi-gold font-semibold mt-8 text-lg">
+        <p class="text-center text-primary font-semibold mt-8 text-lg">
           The good news — all these issues can be addressed with ZoneMaintenance.
         </p>
       </div>
     </section>
 
     <!-- Key Quote -->
-    <section class="py-16 sm:py-24 bg-emi-charcoal text-white">
+    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <blockquote>
-          <p class="text-xl sm:text-2xl italic text-gray-200">
+          <p class="text-xl sm:text-2xl italic text-neutral-content/90">
             "Our maintenance software and methods are designed to eliminate wasted time and effort within Preventative Maintenance (PM) Services — reducing servicing time by over 30% and unplanned breakdowns by over 40%. We provide a defined process to performing effective, repeatable servicing and inspections for mobile mining equipment."
           </p>
         </blockquote>
@@ -125,28 +137,24 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- iPad Section -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide mb-6">
-          iPad Software
-        </h2>
-        <p class="text-lg text-gray-700 mb-8">
+        <h2 class="section-heading mb-6">iPad Software</h2>
+        <p class="prose-body mb-8">
           Amazing new screens and improved user experience — the iPad software is changing the way maintenance is being executed.
         </p>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Creating a Simple Process That's Repeatable and Efficient</h3>
-        <p class="text-gray-700">
+        <h3 class="section-subheading mb-4">Creating a Simple Process That's Repeatable and Efficient</h3>
+        <p class="prose-body">
           It should be about consistency, not speed. When it comes to mining equipment maintenance, what's important is having a process that can be repeated, time and again, autonomously and always to the same level of accuracy.
         </p>
       </div>
     </section>
 
     <!-- Compatible Equipment -->
-    <section class="py-16 sm:py-24 bg-emi-gray">
+    <section class="py-16 sm:py-24 bg-base-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
-          Compatible Equipment
-        </h2>
-        <p class="text-gray-700 text-center max-w-3xl mx-auto mb-8">
+        <h2 class="section-heading text-center mb-8">Compatible Equipment</h2>
+        <p class="prose-body text-center max-w-3xl mx-auto mb-8">
           ZoneMaintenance is ideal for mobile assets, such as:
         </p>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
@@ -161,74 +169,78 @@ import Footer from '../components/Footer.astro';
             'Underground trucks and loaders',
             'Practically any mobile machine',
           ].map((item) => (
-            <div class="flex items-center gap-3 bg-white rounded-lg p-4 border border-gray-200">
-              <svg class="w-5 h-5 text-emi-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-              <span class="text-gray-700">{item}</span>
+            <div class="card bg-base-100">
+              <div class="card-body flex-row items-center gap-3 p-4">
+                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
+                <span class="text-base">{item}</span>
+              </div>
             </div>
           ))}
         </div>
-        <p class="text-gray-700 text-center max-w-3xl mx-auto mt-8">
+        <p class="prose-body text-center max-w-3xl mx-auto mt-8">
           ZoneMaintenance is designed to eliminate wasted time and effort within the scheduled PM servicing process of any mobile plant. Plus, it's simple to implement in sites of any size.
         </p>
       </div>
     </section>
 
     <!-- Performance Statistics -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-4">
+        <h2 class="section-heading text-center mb-4">
           We've Done the Figures, and the Results Are In
         </h2>
-        <p class="text-gray-600 text-center max-w-3xl mx-auto mb-12">
+        <p class="prose-body text-center max-w-3xl mx-auto mb-12">
           When safety, quality, and effective turnaround is essential, we can help you streamline your maintenance processes for mobile equipment with ZoneMaintenance.
         </p>
         <div class="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          <div class="rounded-xl border-2 border-emi-gold bg-white p-10 text-center">
-            <div class="text-5xl font-bold text-emi-gold mb-3">30%</div>
-            <p class="text-gray-700 text-lg">Reduction in PM service times</p>
-            <p class="text-sm text-gray-500 mt-2">More productivity, more uptime</p>
+          <div class="stats shadow border-2 border-primary">
+            <div class="stat text-center">
+              <div class="stat-value text-primary">30%</div>
+              <div class="stat-title text-base font-medium">Reduction in PM service times</div>
+              <div class="stat-desc">More productivity, more uptime</div>
+            </div>
           </div>
-          <div class="rounded-xl border-2 border-emi-gold bg-white p-10 text-center">
-            <div class="text-5xl font-bold text-emi-gold mb-3">40%</div>
-            <p class="text-gray-700 text-lg">Fewer unplanned breakdowns</p>
-            <p class="text-sm text-gray-500 mt-2">Improved fleet reliability</p>
+          <div class="stats shadow border-2 border-primary">
+            <div class="stat text-center">
+              <div class="stat-value text-primary">40%</div>
+              <div class="stat-title text-base font-medium">Fewer unplanned breakdowns</div>
+              <div class="stat-desc">Improved fleet reliability</div>
+            </div>
           </div>
         </div>
         <div class="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto mt-8">
           <div class="text-center p-6">
-            <p class="text-emi-gold font-bold text-lg mb-1">Save TIME</p>
-            <p class="text-gray-600 text-sm">By increasing uptime</p>
+            <p class="text-primary font-bold text-lg mb-1">Save TIME</p>
+            <p class="text-base">By increasing uptime</p>
           </div>
           <div class="text-center p-6">
-            <p class="text-emi-gold font-bold text-lg mb-1">Save EFFORT</p>
-            <p class="text-gray-600 text-sm">By reducing labour costs</p>
+            <p class="text-primary font-bold text-lg mb-1">Save EFFORT</p>
+            <p class="text-base">By reducing labour costs</p>
           </div>
           <div class="text-center p-6">
-            <p class="text-emi-gold font-bold text-lg mb-1">Save MONEY</p>
-            <p class="text-gray-600 text-sm">By improving your bottom line</p>
+            <p class="text-primary font-bold text-lg mb-1">Save MONEY</p>
+            <p class="text-base">By improving your bottom line</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Implementation Expectations -->
-    <section class="py-16 sm:py-24 bg-emi-gray">
+    <section class="py-16 sm:py-24 bg-base-200">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide mb-8">
-          What Can You Expect with ZoneMaintenance?
-        </h2>
-        <div class="space-y-6 text-gray-700">
+        <h2 class="section-heading mb-8">What Can You Expect with ZoneMaintenance?</h2>
+        <div class="space-y-4 prose-body">
           <p>
             Results are entirely dependent on your needs and business requirements. In our experience, substantial site results don't come about from big changes. They happen because the management team is committed to long term improvements and effectively support simple changes to existing workplace habits.
           </p>
           <p>If your company:</p>
-          <ol class="list-decimal list-inside space-y-2 ml-4">
+          <ol class="list-decimal list-inside space-y-2 ml-4 text-base">
             <li>Needs to make a serious adjustment to improve</li>
             <li>This need outweighs any potential resistance to change</li>
             <li>And the change will benefit all levels of your workforce</li>
           </ol>
           <p>
-            Then it's entirely possible to quickly achieve <strong class="text-emi-gold">30-40% improvements</strong> across your combined servicing timeframes and a step change in asset reliability. We work closely with your team and communicate with all levels. We take the time to explain what can be achieved and what the system and process are about.
+            Then it's entirely possible to quickly achieve <strong class="text-primary">30-40% improvements</strong> across your combined servicing timeframes and a step change in asset reliability. We work closely with your team and communicate with all levels. We take the time to explain what can be achieved and what the system and process are about.
           </p>
           <p>
             The thing that sets ZoneMaintenance apart is its ability to blend with your site environment and requirements seamlessly. It's more than just a flexible software system — it's a methodology that becomes a defined process in itself.
@@ -238,50 +250,43 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Related Products -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-8">
-          Related Product
-        </h2>
+        <h2 class="section-heading text-center mb-8">Related Product</h2>
         <div class="max-w-xl mx-auto">
-          <div class="rounded-xl border border-gray-200 bg-white p-8 hover:shadow-lg transition-shadow">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">RouteMaintenance</h3>
-            <p class="text-sm text-emi-gold font-semibold mb-4">Fixed Plant Maintenance</p>
-            <p class="text-gray-700 mb-6">
-              Focus on efficient, clearly defined, and repeatable methods for carrying out periodic inspections of fixed plant facilities.
-            </p>
-            <a
-              href="/routemaintenance"
-              class="inline-flex items-center px-6 py-2.5 border border-emi-gold text-emi-gold font-semibold rounded-lg hover:bg-emi-gold hover:text-white transition-colors text-sm"
-            >
-              Learn More
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
+          <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow border border-base-300">
+            <div class="card-body">
+              <h3 class="card-title">RouteMaintenance</h3>
+              <div class="badge badge-primary badge-outline">Fixed Plant Maintenance</div>
+              <p class="mt-2">
+                Focus on efficient, clearly defined, and repeatable methods for carrying out periodic inspections of fixed plant facilities.
+              </p>
+              <div class="card-actions mt-4">
+                <a href="/routemaintenance" class="btn btn-primary btn-sm">
+                  Learn More
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="py-16 sm:py-24 bg-emi-black text-white">
+    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-wide mb-4">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">
           Looking for a Better System for Your Mining Equipment Maintenance?
         </h2>
-        <p class="text-gray-300 mb-8 text-lg">
+        <p class="text-neutral-content/80 mb-8 text-lg">
           Try our demo version or get in touch to discuss how ZoneMaintenance can transform your operations.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/contact"
-            class="px-8 py-3 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors"
-          >
+          <a href="/contact" class="btn btn-primary btn-lg">
             Ask for a Demo
           </a>
-          <a
-            href="/take-action"
-            class="px-8 py-3 border border-emi-gold text-emi-gold font-semibold rounded-lg hover:bg-emi-gold hover:text-white transition-colors"
-          >
+          <a href="/take-action" class="btn btn-outline btn-primary btn-lg">
             Take Action
           </a>
         </div>

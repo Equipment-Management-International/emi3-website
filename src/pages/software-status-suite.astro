@@ -6,32 +6,40 @@ import Footer from '../components/Footer.astro';
 
 <Layout title="Status Suite Software — Equipment Management International">
   <Nav />
-  <main class="pt-20">
-    <!-- Hero -->
-    <section class="bg-emi-charcoal text-white py-16 sm:py-24 scroll-mt-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide mb-6">
+  <main id="top" class="pt-20">
+    <!-- Hero with background image -->
+    <section class="relative min-h-[50vh] flex items-center overflow-hidden">
+      <div class="absolute inset-0">
+        <img
+          src="/images/hero/status-suite.jpg"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-24 w-full">
+        <h1 class="text-3xl sm:text-4xl font-bold text-white mb-6 hero-text-shadow">
           Our Status Suite of Software
         </h1>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        <p class="text-lg text-white/90 max-w-3xl mx-auto hero-text-shadow">
           Customisable software that delivers efficient compliance auditing and inspection modules
         </p>
       </div>
     </section>
 
     <!-- Opening -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-lg text-gray-700">
+        <p class="prose-body">
           Not all sites are the same. So why waste time with a one-size-fits-all generic paper-based template? Each of our modules is designed with the specific needs of each application and purpose at your site.
         </p>
       </div>
     </section>
 
     <!-- Key Benefits -->
-    <section class="py-16 sm:py-24 bg-emi-gray">
+    <section class="py-16 sm:py-24 bg-base-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+        <h2 class="section-heading text-center mb-12">
           Key Benefits
         </h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -42,9 +50,11 @@ import Footer from '../components/Footer.astro';
             'Improve the management of inspection and reporting times',
             'Guarantee tangible results that can be actioned immediately',
           ].map((benefit) => (
-            <div class="flex items-start gap-3 bg-white rounded-xl p-6 border border-gray-200">
-              <svg class="w-6 h-6 text-emi-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <p class="text-gray-700">{benefit}</p>
+            <div class="card bg-base-100">
+              <div class="card-body flex-row items-start gap-3">
+                <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <p class="text-base">{benefit}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -52,84 +62,116 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Product Cards -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+        <h2 class="section-heading text-center mb-12">
           Status Suite Products
         </h2>
 
         <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <!-- SafetyStatus -->
-          <div class="rounded-xl border border-gray-200 bg-white p-8 hover:shadow-lg transition-shadow">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">SafetyStatus</h3>
-            <p class="text-sm text-emi-gold font-semibold mb-4">Safety Audits & Inspections</p>
-            <p class="text-gray-700 mb-6">
-              Follow structured and practical safety audits. SafetyStatus allows you to remove generic paper-based checklists that slow down your operation. And with a focus on safe and efficient processes, the data is easier to collect, analyse, and make decisions on.
-            </p>
-            <a
-              href="/safetystatus"
-              class="inline-flex items-center px-6 py-2.5 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors text-sm"
-            >
-              Learn More
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
+          <div class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+            <figure class="px-8 pt-8">
+              <img
+                src="/images/products/safety-status-logo.png"
+                alt="SafetyStatus logo"
+                class="h-16 object-contain"
+              />
+            </figure>
+            <div class="card-body">
+              <h3 class="card-title">SafetyStatus</h3>
+              <div class="badge badge-primary badge-outline">Safety Audits & Inspections</div>
+              <p class="prose-body mt-3">
+                Follow structured and practical safety audits. SafetyStatus allows you to remove generic paper-based checklists that slow down your operation. And with a focus on safe and efficient processes, the data is easier to collect, analyse, and make decisions on.
+              </p>
+              <div class="card-actions mt-6">
+                <a href="/safetystatus" class="btn btn-primary">
+                  Learn More
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+              </div>
+            </div>
           </div>
 
           <!-- EquipmentStatus -->
-          <div class="rounded-xl border border-gray-200 bg-white p-8 hover:shadow-lg transition-shadow">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">EquipmentStatus</h3>
-            <p class="text-sm text-emi-gold font-semibold mb-4">Equipment Condition Compliance</p>
-            <p class="text-gray-700 mb-6">
-              EquipmentStatus is designed to support equipment condition compliance. It's ideally suited for rental equipment return inspections and release compliance, or MDG15 equipment inspections and audits.
-            </p>
-            <a
-              href="/contact"
-              class="inline-flex items-center px-6 py-2.5 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors text-sm"
-            >
-              Request a Demo
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
+          <div class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+            <figure class="px-8 pt-8">
+              <img
+                src="/images/products/equipment-status-logo.png"
+                alt="EquipmentStatus logo"
+                class="h-16 object-contain"
+              />
+            </figure>
+            <div class="card-body">
+              <h3 class="card-title">EquipmentStatus</h3>
+              <div class="badge badge-primary badge-outline">Equipment Condition Compliance</div>
+              <p class="prose-body mt-3">
+                EquipmentStatus is designed to support equipment condition compliance. It's ideally suited for rental equipment return inspections and release compliance, or MDG15 equipment inspections and audits.
+              </p>
+              <div class="card-actions mt-6">
+                <a href="/contact" class="btn btn-primary">
+                  Request a Demo
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+              </div>
+            </div>
           </div>
 
           <!-- EnviroStatus -->
-          <div class="rounded-xl border border-gray-200 bg-white p-8 hover:shadow-lg transition-shadow">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">EnviroStatus</h3>
-            <p class="text-sm text-emi-gold font-semibold mb-4">Environmental Audits</p>
-            <p class="text-gray-700 mb-6">
-              EnviroStatus helps your team easily collect and analyse critical values and condition of the environmental situation in near real-time. Ideal for any type of environmental condition audit or inspection.
-            </p>
-            <a
-              href="/contact"
-              class="inline-flex items-center px-6 py-2.5 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors text-sm"
-            >
-              Request a Demo
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
+          <div class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+            <figure class="px-8 pt-8">
+              <img
+                src="/images/products/enviro-status-logo.png"
+                alt="EnviroStatus logo"
+                class="h-16 object-contain"
+              />
+            </figure>
+            <div class="card-body">
+              <h3 class="card-title">EnviroStatus</h3>
+              <div class="badge badge-primary badge-outline">Environmental Audits</div>
+              <p class="prose-body mt-3">
+                EnviroStatus helps your team easily collect and analyse critical values and condition of the environmental situation in near real-time. Ideal for any type of environmental condition audit or inspection.
+              </p>
+              <div class="card-actions mt-6">
+                <a href="/contact" class="btn btn-primary">
+                  Request a Demo
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+              </div>
+            </div>
           </div>
 
           <!-- ComponentStatus -->
-          <div class="rounded-xl border border-gray-200 bg-white p-8 hover:shadow-lg transition-shadow">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">ComponentStatus</h3>
-            <p class="text-sm text-emi-gold font-semibold mb-4">Component Rebuilds</p>
-            <p class="text-gray-700 mb-6">
-              ComponentStatus helps you simplify component rebuild processes with fully guided software. Each step clearly defines what the task is and how to do it, which trains the user on how to carry out the rebuild safely and efficiently.
-            </p>
-            <a
-              href="/componentstatus"
-              class="inline-flex items-center px-6 py-2.5 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors text-sm"
-            >
-              Learn More
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
+          <div class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+            <figure class="px-8 pt-8">
+              <img
+                src="/images/products/component-status-logo.png"
+                alt="ComponentStatus logo"
+                class="h-16 object-contain"
+              />
+            </figure>
+            <div class="card-body">
+              <h3 class="card-title">ComponentStatus</h3>
+              <div class="badge badge-primary badge-outline">Component Rebuilds</div>
+              <p class="prose-body mt-3">
+                ComponentStatus helps you simplify component rebuild processes with fully guided software. Each step clearly defines what the task is and how to do it, which trains the user on how to carry out the rebuild safely and efficiently.
+              </p>
+              <div class="card-actions mt-6">
+                <a href="/componentstatus" class="btn btn-primary">
+                  Learn More
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Footer Note -->
-    <section class="py-12 bg-emi-black text-white">
+    <section class="py-12 bg-neutral text-neutral-content">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p class="text-gray-300">
+        <p class="text-neutral-content/80 text-base">
           All our software applications are owned by EMI and developed in-house in Australia.
         </p>
       </div>

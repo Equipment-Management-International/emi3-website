@@ -23,74 +23,72 @@ const legalLinks = [
 ];
 ---
 
-<footer class="bg-yellow-400 text-gray-900">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-      <!-- Brand -->
-      <div class="col-span-2 md:col-span-1">
-        <a href="/" class="block mb-4">
-          <img
-            src="/images/emi-logo.jpeg"
-            alt="Equipment Management International"
-            class="h-10 w-auto"
-          />
+<div class="bg-neutral text-neutral-content">
+  <!-- Gold accent bar -->
+  <div class="h-1 bg-primary"></div>
+
+  <!-- Main footer -->
+  <footer class="footer sm:footer-horizontal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <!-- Brand -->
+    <aside>
+      <a href="/" class="block mb-2">
+        <img
+          src="/images/emi-logo.jpeg"
+          alt="Equipment Management International"
+          class="h-10 w-auto brightness-0 invert"
+        />
+      </a>
+      <p class="text-sm text-neutral-content/70">
+        Complex digital work instructions,<br />shared simply.
+      </p>
+      <p class="text-sm text-neutral-content/70 mt-1">
+        Serving Tier 1 and 2 mining operations since 2005.
+      </p>
+      <div class="text-sm text-neutral-content/50 mt-3 space-y-0.5">
+        <p>Equipment Management International P/L</p>
+        <p>ABN 45 112 360 273</p>
+        <p>Burnie, TAS, 7320, Australia</p>
+      </div>
+    </aside>
+
+    <!-- Products -->
+    <nav>
+      <h6 class="footer-title text-primary opacity-100">Products</h6>
+      {productLinks.map((link) => (
+        <a href={link.href} class="link link-hover text-neutral-content/70 hover:text-neutral-content text-base">
+          {link.label}
         </a>
-        <p class="text-sm text-gray-700 mb-3">
-          Complex digital work instructions, shared simply. Serving Tier 1 and 2 mining operations since 2005.
-        </p>
-        <div class="text-xs text-gray-600 space-y-1">
-          <p>Equipment Management International P/L</p>
-          <p>ABN 45 112 360 273</p>
-          <p>Burnie, TAS, 7320, Australia</p>
-        </div>
-      </div>
+      ))}
+    </nav>
 
-      <!-- Products -->
-      <div>
-        <h3 class="font-semibold text-gray-900 mb-4">Products</h3>
-        <ul class="space-y-3">
-          {productLinks.map((link) => (
-            <li>
-              <a href={link.href} class="text-sm text-gray-700 hover:text-gray-900 transition-colors">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <!-- Company -->
+    <nav>
+      <h6 class="footer-title text-primary opacity-100">Company</h6>
+      {companyLinks.map((link) => (
+        <a href={link.href} class="link link-hover text-neutral-content/70 hover:text-neutral-content text-base">
+          {link.label}
+        </a>
+      ))}
+    </nav>
 
-      <!-- Company -->
-      <div>
-        <h3 class="font-semibold text-gray-900 mb-4">Company</h3>
-        <ul class="space-y-3">
-          {companyLinks.map((link) => (
-            <li>
-              <a href={link.href} class="text-sm text-gray-700 hover:text-gray-900 transition-colors">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <!-- Legal -->
+    <nav>
+      <h6 class="footer-title text-primary opacity-100">Legal</h6>
+      {legalLinks.map((link) => (
+        <a href={link.href} class="link link-hover text-neutral-content/70 hover:text-neutral-content text-base">
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </footer>
 
-      <!-- Legal -->
-      <div>
-        <h3 class="font-semibold text-gray-900 mb-4">Legal</h3>
-        <ul class="space-y-3">
-          {legalLinks.map((link) => (
-            <li>
-              <a href={link.href} class="text-sm text-gray-700 hover:text-gray-900 transition-colors">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-
-    <div class="pt-8 border-t border-yellow-500 flex items-center justify-between text-xs text-gray-600">
-      <p>&copy; {currentYear} Equipment Management International P/L. All rights reserved.</p>
-      <a href="#top" class="hover:text-gray-900 transition-colors">Back to Top &uarr;</a>
-    </div>
-  </div>
-</footer>
+  <!-- Copyright bar -->
+  <footer class="footer max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 border-t border-neutral-content/10">
+    <aside class="grid-flow-col items-center">
+      <p class="text-sm text-neutral-content/50">&copy; {currentYear} Equipment Management International P/L. All rights reserved.</p>
+    </aside>
+    <nav class="md:place-self-center md:justify-self-end">
+      <a href="#top" class="link link-hover text-sm text-neutral-content/50 hover:text-primary">Back to Top &uarr;</a>
+    </nav>
+  </footer>
+</div>

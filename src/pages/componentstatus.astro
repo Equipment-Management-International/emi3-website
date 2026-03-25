@@ -8,27 +8,34 @@ import Footer from '../components/Footer.astro';
   <Nav />
   <main class="pt-20">
     <!-- Hero -->
-    <section class="bg-emi-black text-white py-16 sm:py-24 scroll-mt-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide mb-6">
-          ComponentStatus
-        </h1>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-          Digital task instructions for component rebuilds
-        </p>
-        <p class="text-gray-400 max-w-2xl mx-auto mt-4">
-          Each step clearly defines what the task is and how to do it, which trains the user on how to carry out a rebuild or repair safely and efficiently.
-        </p>
+    <section class="bg-neutral text-neutral-content py-16 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <div class="flex-1 text-center md:text-left">
+            <h1 class="text-3xl sm:text-4xl font-bold mb-4">
+              ComponentStatus
+            </h1>
+            <p class="text-lg text-neutral-content/80 max-w-2xl">
+              Digital task instructions for component rebuilds
+            </p>
+            <p class="text-neutral-content/70 max-w-2xl mt-3">
+              Each step clearly defines what the task is and how to do it, which trains the user on how to carry out a rebuild or repair safely and efficiently.
+            </p>
+          </div>
+          <div class="flex-shrink-0">
+            <img src="/images/products/component-status-logo.png" alt="ComponentStatus logo" class="h-24 sm:h-32 rounded-lg" />
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Problem Statement -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide mb-8">
+        <h2 class="section-heading mb-6">
           Use Digital Work Instructions to Improve Any Task-Based Process
         </h2>
-        <p class="text-gray-700 text-lg mb-8">
+        <p class="prose-body mb-8">
           There are some common issues with typical paper-based task instructions when it comes to component rebuilds and repairs. Do any of these sound familiar?
         </p>
         <div class="grid sm:grid-cols-2 gap-4">
@@ -41,25 +48,27 @@ import Footer from '../components/Footer.astro';
             'Management unaware of actual time allocation',
             'No efficient parts tracking system',
           ].map((issue) => (
-            <div class="flex items-start gap-3 bg-emi-gray rounded-lg p-4">
-              <svg class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
-              <p class="text-gray-700 text-sm">{issue}</p>
+            <div class="card bg-base-200">
+              <div class="card-body flex-row items-start gap-3 p-4">
+                <svg class="w-5 h-5 text-error flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+                <p>{issue}</p>
+              </div>
             </div>
           ))}
         </div>
-        <p class="text-center text-emi-gold font-semibold mt-8 text-lg">
+        <p class="text-center text-primary font-semibold mt-8 text-lg">
           What if there was a better way to simplify instructions for rebuilds and repairs? ComponentStatus is that solution.
         </p>
       </div>
     </section>
 
     <!-- How It Helps -->
-    <section class="py-16 sm:py-24 bg-emi-gray">
+    <section class="py-16 sm:py-24 bg-base-200">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide mb-8">
+        <h2 class="section-heading mb-8">
           How ComponentStatus Can Help Your Component Rebuild Centre
         </h2>
-        <div class="space-y-6 text-gray-700">
+        <div class="space-y-4 prose-body">
           <p>
             We offer companies a mobility-based software option that adapts complex strip down and assembly processes and procedures into easy-to-read and simple-to-follow structured task instructions.
           </p>
@@ -69,10 +78,10 @@ import Footer from '../components/Footer.astro';
           <p>
             Images, videos and PDFs can also be used to support the steps of each process. And the system clearly identifies any risks involved and when contamination control needs to be applied.
           </p>
-          <p class="font-semibold text-gray-900">
+          <p class="font-semibold text-base-content">
             As a result, ComponentStatus is an advanced digital tool for creating a method to perform rebuilds safely and effectively.
           </p>
-          <p class="text-emi-gold font-semibold">
+          <p class="text-primary font-semibold">
             Now available on iPad. Digital work instructions shared simply.
           </p>
         </div>
@@ -80,108 +89,120 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Extended Capabilities -->
-    <section class="py-16 sm:py-24 bg-white">
+    <section class="py-16 sm:py-24 bg-base-100">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide mb-8">
+        <h2 class="section-heading mb-8">
           But It's Much More Than Just Digital Task Instructions
         </h2>
 
-        <div class="space-y-8">
+        <div class="space-y-6">
           <!-- Job Control -->
-          <div class="rounded-xl border border-gray-200 p-6">
-            <h3 class="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
-              <svg class="w-6 h-6 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-              Job Control at All Levels
-            </h3>
-            <p class="text-gray-700">
-              Job control at all levels of the business is very important to any component rebuild centre. ComponentStatus provides you with a clear view of the status of all the work in progress. Who's on the job, where they are up to, what impacts they have had and how much time is remaining. Additionally, ComponentStatus can show the condition of the component as it passes through the rebuild process.
-            </p>
+          <div class="card bg-base-100 border border-base-300">
+            <div class="card-body">
+              <h3 class="card-title">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                Job Control at All Levels
+              </h3>
+              <p>
+                Job control at all levels of the business is very important to any component rebuild centre. ComponentStatus provides you with a clear view of the status of all the work in progress. Who's on the job, where they are up to, what impacts they have had and how much time is remaining. Additionally, ComponentStatus can show the condition of the component as it passes through the rebuild process.
+              </p>
+            </div>
           </div>
 
           <!-- Parts & Analytics -->
-          <div class="rounded-xl border border-gray-200 p-6">
-            <h3 class="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
-              <svg class="w-6 h-6 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-              Parts Tracking & Analytics
-            </h3>
-            <p class="text-gray-700">
-              Any additional parts required can be captured against the task and job which means you can view some amazing analytics over the history of the component make and model. Job timeline can be viewed along with actual vs estimated times against the complete job to the actual task.
-            </p>
+          <div class="card bg-base-100 border border-base-300">
+            <div class="card-body">
+              <h3 class="card-title">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                Parts Tracking & Analytics
+              </h3>
+              <p>
+                Any additional parts required can be captured against the task and job which means you can view some amazing analytics over the history of the component make and model. Job timeline can be viewed along with actual vs estimated times against the complete job to the actual task.
+              </p>
+            </div>
           </div>
 
           <!-- Defect Recording -->
-          <div class="rounded-xl border border-gray-200 p-6">
-            <h3 class="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
-              <svg class="w-6 h-6 text-emi-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-              Defect Recording & Condition Monitoring
-            </h3>
-            <p class="text-gray-700">
-              If a rebuild technician spots an issue with a component, it can be recorded electronically, risk-rated for future rectification priority, and images of the finding can be captured. Previously reported or outstanding findings can easily be viewed, edited, and the status of the component updated. Technical questions are used as prompts to determine the actual condition of the component. Any values that fall outside the min/max range automatically trigger a reporting process.
-            </p>
+          <div class="card bg-base-100 border border-base-300">
+            <div class="card-body">
+              <h3 class="card-title">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                Defect Recording & Condition Monitoring
+              </h3>
+              <p>
+                If a rebuild technician spots an issue with a component, it can be recorded electronically, risk-rated for future rectification priority, and images of the finding can be captured. Previously reported or outstanding findings can easily be viewed, edited, and the status of the component updated. Technical questions are used as prompts to determine the actual condition of the component. Any values that fall outside the min/max range automatically trigger a reporting process.
+              </p>
+            </div>
           </div>
         </div>
 
-        <p class="mt-8 text-gray-900 font-semibold text-lg">
+        <p class="mt-8 font-semibold text-lg text-base-content">
           ComponentStatus enables rebuild technicians to perform their tasks to the standard expected by your company — safely, efficiently, and with purpose and value.
         </p>
       </div>
     </section>
 
     <!-- Related Products -->
-    <section class="py-16 sm:py-24 bg-emi-gray">
+    <section class="py-16 sm:py-24 bg-base-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 uppercase tracking-wide text-center mb-12">
+        <h2 class="section-heading text-center mb-12">
           Other Status Suite Products
         </h2>
         <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div class="rounded-xl border border-gray-200 bg-white p-6 hover:shadow-lg transition-shadow">
-            <h3 class="text-lg font-bold text-gray-900 mb-2">SafetyStatus</h3>
-            <p class="text-sm text-emi-gold font-semibold mb-3">Safety Audits</p>
-            <p class="text-gray-700 text-sm mb-4">
-              Follow structured and practical safety audits using mobility-based solutions. Remove generic paper-based checklists that slow down your operation.
-            </p>
-            <a href="/safetystatus" class="text-emi-gold font-semibold text-sm hover:underline">Learn More &rarr;</a>
+          <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+            <div class="card-body">
+              <h3 class="card-title">SafetyStatus</h3>
+              <div class="badge badge-primary badge-outline">Safety Audits</div>
+              <p class="mt-2">
+                Follow structured and practical safety audits using mobility-based solutions. Remove generic paper-based checklists that slow down your operation.
+              </p>
+              <div class="card-actions mt-4">
+                <a href="/safetystatus" class="btn btn-primary btn-sm">Learn More</a>
+              </div>
+            </div>
           </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-6 hover:shadow-lg transition-shadow">
-            <h3 class="text-lg font-bold text-gray-900 mb-2">EquipmentStatus</h3>
-            <p class="text-sm text-emi-gold font-semibold mb-3">Equipment Compliance</p>
-            <p class="text-gray-700 text-sm mb-4">
-              Designed to support equipment condition compliance. Ideally suited for rental equipment return inspections and MDG15 equipment audits.
-            </p>
-            <a href="/contact" class="text-emi-gold font-semibold text-sm hover:underline">Request a Demo &rarr;</a>
+          <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+            <div class="card-body">
+              <h3 class="card-title">EquipmentStatus</h3>
+              <div class="badge badge-primary badge-outline">Equipment Compliance</div>
+              <p class="mt-2">
+                Designed to support equipment condition compliance. Ideally suited for rental equipment return inspections and MDG15 equipment audits.
+              </p>
+              <div class="card-actions mt-4">
+                <a href="/contact" class="btn btn-primary btn-sm">Request a Demo</a>
+              </div>
+            </div>
           </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-6 hover:shadow-lg transition-shadow">
-            <h3 class="text-lg font-bold text-gray-900 mb-2">EnviroStatus</h3>
-            <p class="text-sm text-emi-gold font-semibold mb-3">Environmental Audits</p>
-            <p class="text-gray-700 text-sm mb-4">
-              Collect in-field data to monitor environmental condition and compliance requirements in near real-time.
-            </p>
-            <a href="/contact" class="text-emi-gold font-semibold text-sm hover:underline">Request a Demo &rarr;</a>
+          <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+            <div class="card-body">
+              <h3 class="card-title">EnviroStatus</h3>
+              <div class="badge badge-primary badge-outline">Environmental Audits</div>
+              <p class="mt-2">
+                Collect in-field data to monitor environmental condition and compliance requirements in near real-time.
+              </p>
+              <div class="card-actions mt-4">
+                <a href="/contact" class="btn btn-primary btn-sm">Request a Demo</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="py-16 sm:py-24 bg-emi-black text-white">
+    <section class="py-16 sm:py-24 bg-neutral text-neutral-content">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-wide mb-4">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">
           Simplify Your Component Rebuild Processes
         </h2>
-        <p class="text-gray-300 mb-8 text-lg">
+        <p class="text-neutral-content/80 mb-8 text-lg">
           Request a demo to see how ComponentStatus can transform your rebuild centre operations.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/contact"
-            class="px-8 py-3 bg-emi-gold text-white font-semibold rounded-lg hover:bg-emi-gold-dark transition-colors"
-          >
+          <a href="/contact" class="btn btn-primary btn-lg">
             Request a Demo
           </a>
-          <a
-            href="/take-action"
-            class="px-8 py-3 border border-emi-gold text-emi-gold font-semibold rounded-lg hover:bg-emi-gold hover:text-white transition-colors"
-          >
+          <a href="/take-action" class="btn btn-outline btn-primary btn-lg">
             Take Action
           </a>
         </div>
