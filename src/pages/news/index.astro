@@ -20,6 +20,9 @@ if (client) {
     console.error('Failed to fetch news articles:', e);
   }
 }
+
+// Collect all unique tags across articles
+const allTags = [...new Set(articles.flatMap((a) => a.fields.tags || []))].sort();
 ---
 
 <Layout title="News & Blogs — Equipment Management International" description="Latest news, insights, and updates from Equipment Management International on mining maintenance software, industry trends, and operational improvement.">
@@ -35,8 +38,29 @@ if (client) {
     <!-- Articles grid -->
     <section class="py-16 sm:py-24 bg-base-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Tag filter bar */}
+        {allTags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mb-10" id="tag-filter">
+            <button
+              class="btn btn-sm btn-primary tag-btn"
+              data-tag="all"
+            >
+              All
+            </button>
+            {allTags.map((tag) => (
+              <button
+                class="btn btn-sm btn-outline btn-primary tag-btn"
+                data-tag={tag}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+        )}
+
         {articles.length > 0 ? (
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-grid">
             {articles.map((article) => {
               const { title, slug, date, excerpt, featuredImage, tags } = article.fields;
               const imgUrl = featuredImage?.fields?.file?.url
@@ -47,11 +71,13 @@ if (client) {
                 month: 'long',
                 day: 'numeric',
               });
+              const tagList = (tags || []).join(',');
 
               return (
                 <a
                   href={`/news/${slug}`}
-                  class="card bg-base-100 shadow-sm hover:shadow-lg border border-base-300 hover:border-primary/50 transition-all duration-200 group"
+                  class="card bg-base-100 shadow-sm hover:shadow-lg border border-base-300 hover:border-primary/50 transition-all duration-200 group article-card"
+                  data-tags={tagList}
                 >
                   <figure class="aspect-[16/10] overflow-hidden">
                     {imgUrl ? (
@@ -70,11 +96,11 @@ if (client) {
                     )}
                   </figure>
                   <div class="card-body">
-                    <div class="flex items-center gap-3 mb-1">
-                      <time class="text-base text-base-content/70">{formattedDate}</time>
-                      {tags && tags.length > 0 && (
-                        <span class="badge badge-primary badge-sm">{tags[0]}</span>
-                      )}
+                    <div class="flex items-center gap-2 flex-wrap mb-1">
+                      <time class="text-sm text-base-content/60">{formattedDate}</time>
+                      {tags && tags.map((tag: string) => (
+                        <span class="badge badge-primary badge-outline badge-sm">{tag}</span>
+                      ))}
                     </div>
                     <h2 class="section-subheading group-hover:text-primary transition-colors">
                       {title}
@@ -95,8 +121,47 @@ if (client) {
             <p class="prose-body">No articles yet. Check back soon!</p>
           </div>
         )}
+
+        {/* Empty state for filtered results */}
+        <div id="no-results" class="text-center py-16 hidden">
+          <p class="prose-body">No articles found for this tag.</p>
+        </div>
       </div>
     </section>
   </main>
   <Footer />
 </Layout>
+
+<script>
+  const buttons = document.querySelectorAll('.tag-btn');
+  const cards = document.querySelectorAll('.article-card');
+  const noResults = document.getElementById('no-results');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tag = (btn as HTMLElement).dataset.tag;
+
+      // Update button styles
+      buttons.forEach((b) => {
+        b.classList.remove('btn-primary');
+        b.classList.add('btn-outline');
+      });
+      btn.classList.remove('btn-outline');
+      btn.classList.add('btn-primary');
+
+      // Filter cards
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const cardTags = (card as HTMLElement).dataset.tags || '';
+        const matches = tag === 'all' || cardTags.split(',').includes(tag!);
+        (card as HTMLElement).style.display = matches ? '' : 'none';
+        if (matches) visibleCount++;
+      });
+
+      // Show/hide empty state
+      if (noResults) {
+        noResults.classList.toggle('hidden', visibleCount > 0);
+      }
+    });
+  });
+</script>
