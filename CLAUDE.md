@@ -19,41 +19,98 @@ This is a full rebuild of their existing site using a modern Astro + Contentful 
 ## Project Structure
 
 ```
-src/
-├── components/          # Astro components (.astro files)
-│   ├── Nav.astro        # Fixed header with mobile menu
-│   ├── Footer.astro     # Site footer with links
-│   ├── HeroSection.astro        # Hero banner with CTA
-│   ├── ValueProp.astro          # Core value proposition section
-│   ├── ProductGrid.astro        # 6 software product cards
-│   ├── ProcessSteps.astro       # 4-step getting started
-│   └── CTASection.astro         # Closing call-to-action
-├── lib/
-│   ├── contentful.ts    # Contentful SDK client (returns null if unconfigured)
-│   ├── contentful-types.ts  # TypeScript interfaces for content types
-│   └── rich-text.ts     # Rich text → HTML renderer with EMI Tailwind classes
-├── layouts/
-│   └── Layout.astro     # Base HTML layout (meta, fonts, analytics)
-├── pages/
-│   ├── index.astro      # Homepage (all sections)
-│   ├── contact.astro    # Contact page
-│   ├── news/
-│   │   ├── index.astro  # News listing (Contentful newsArticle)
-│   │   └── [slug].astro # Individual news article
-│   ├── privacy-policy.astro
-│   ├── term-of-use.astro
-│   └── [...slug].astro  # Dynamic Contentful pages (products, about, etc.)
-└── styles/
-    └── global.css       # Tailwind imports + EMI brand theme (@theme block)
+├── Dockerfile.dev       # Dev container (Node 20 + pnpm)
+├── docker-compose.yml   # One-command dev server for Windows
+├── load-env.ps1         # PowerShell helper to load .env for MCP
+├── src/
+│   ├── components/          # Astro components (.astro files)
+│   │   ├── Nav.astro        # Mega-menu nav with mobile slide-out
+│   │   ├── Footer.astro     # Dark footer with gold accent
+│   │   ├── HeroSection.astro        # Homepage hero with glass panels
+│   │   ├── PageHero.astro           # Reusable inner-page hero (image + glass text)
+│   │   ├── QuoteBlock.astro         # Branded gold-border blockquote
+│   │   ├── StatCard.astro           # Big number metric display
+│   │   ├── CTABanner.astro          # Dark CTA section with dual buttons
+│   │   ├── ValueProp.astro          # Benefit cards + testimonial
+│   │   ├── ProductGrid.astro        # 6 software product cards
+│   │   ├── ProcessSteps.astro       # 4-step getting started
+│   │   ├── Specialisations.astro    # Capabilities checklist
+│   │   └── CTASection.astro         # Homepage closing CTA
+│   ├── lib/
+│   │   ├── contentful.ts    # Contentful SDK client (returns null if unconfigured)
+│   │   ├── contentful-types.ts  # TypeScript interfaces for content types
+│   │   └── rich-text.ts     # Rich text → HTML renderer with EMI Tailwind classes
+│   ├── layouts/
+│   │   └── Layout.astro     # Base HTML layout (meta, OG tags, GA, JSON-LD)
+│   ├── pages/
+│   │   ├── index.astro      # Homepage
+│   │   ├── contact.astro    # Contact form (Netlify Forms)
+│   │   ├── news/
+│   │   │   ├── index.astro  # News listing with tag filter
+│   │   │   └── [slug].astro # Individual news article
+│   │   ├── zonemaintenance.astro    # Product detail pages
+│   │   ├── routemaintenance.astro
+│   │   ├── safetystatus.astro
+│   │   ├── componentstatus.astro
+│   │   ├── software.astro           # Suite overviews
+│   │   ├── software-status-suite.astro
+│   │   ├── what-we-do.astro         # Company / approach
+│   │   ├── projects.astro
+│   │   ├── sensory-based-data.astro
+│   │   ├── magnom.astro
+│   │   ├── take-action.astro
+│   │   ├── privacy-policy.astro
+│   │   ├── term-of-use.astro
+│   │   └── [...slug].astro  # Dynamic Contentful pages
+│   └── styles/
+│       └── global.css       # Tailwind + DaisyUI theme (@theme + @plugin)
 ```
 
-## Commands
+## Development Setup
+
+### macOS (native)
 
 ```bash
-pnpm dev       # Astro dev server
+# Load environment variables (required before dev/build)
+set -a; source .env; set +a
+
+pnpm dev       # Astro dev server at http://localhost:4321
 pnpm build     # Production build to dist/
 pnpm preview   # Preview production build locally
 ```
+
+### Windows (Docker)
+
+Prerequisites: [Docker Desktop for Windows](https://docs.docker.com/desktop/setup/install/windows-install/), [Node.js 20 LTS](https://nodejs.org/) (for MCP tools)
+
+```powershell
+# First time (or after dependency changes):
+docker compose build
+
+# Start development server:
+docker compose up
+
+# Open http://localhost:4321 in your browser
+# Edit files normally — changes appear automatically
+
+# Stop:
+docker compose down
+```
+
+To use Claude Code MCP tools (Contentful), load env vars first:
+```powershell
+. .\load-env.ps1
+```
+
+### Environment Variables
+
+The `.env` file uses plain `KEY=VALUE` format (no `export` prefix).
+
+- **macOS**: Run `set -a; source .env; set +a` to load into your shell
+- **Windows/Docker**: `docker-compose.yml` loads `.env` automatically
+- **Windows MCP**: Run `. .\load-env.ps1` in PowerShell before launching Claude Code
+
+Create your `.env` from `.env.example` and fill in the Contentful tokens.
 
 ## Architecture & Key Decisions
 
@@ -101,20 +158,29 @@ Prefix with `PUBLIC_` for client-side access. Contentful vars are server-side on
 
 Usage: `bg-emi-gold`, `text-emi-charcoal`, `border-emi-gold-dark`, etc.
 
+### UI Component Library
+- **DaisyUI 5** — installed as Tailwind CSS 4 plugin (`@plugin "daisyui"` in global.css)
+- Custom `emi` theme defined via `@plugin "daisyui/theme"` with gold primary, dark neutral
+- Key DaisyUI components used: `navbar`, `btn`, `card`, `badge`, `stat`, `footer`, `dropdown`
+
 ### Typography
-- **Primary font:** TBD (clean sans-serif — likely Inter or similar)
-- Uppercase headings for section titles (matches current site style)
-- Professional, technical tone
+- **Primary font:** Inter (Google Fonts)
+- **Section headings:** `.section-heading` class (30/36px, bold, no uppercase)
+- **Subheadings:** `.section-subheading` class (20px, semibold)
+- **Body text:** `.prose-body` class (17px, generous line-height)
+- Minimum text size: 15px (never use `text-sm` for body content)
+- Custom CSS classes defined in Layout.astro `<style is:global>` block (not global.css, to survive Tailwind 4's CSS pipeline)
 
 ### Design Patterns
-- **Sections:** Alternate light/dark backgrounds for visual rhythm
-- **Light sections:** `bg-white` or `bg-emi-gray`
-- **Dark sections:** `bg-emi-charcoal` or `bg-emi-black` with light text
+- **Sections:** Only 3 backgrounds: `bg-base-100` (white), `bg-base-200` (light gray), `bg-neutral text-neutral-content` (dark)
 - **Section spacing:** `py-16 sm:py-24`
 - **Content containers:** `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`
-- **Cards:** `rounded-xl border border-gray-200 bg-white hover:shadow-lg`
-- **Buttons:** Primary = `bg-emi-gold text-white font-semibold hover:bg-emi-gold-dark`, Secondary = `border border-emi-gold text-emi-gold`
-- **Fixed nav:** `backdrop-blur-md` with dark background
+- **Hero sections:** `PageHero` component with background image + `glass-panel` text overlay
+- **Glass panels:** `.glass-panel` (dark frosted) and `.glass-panel-light` (light frosted) for text over images
+- **Cards:** DaisyUI `card bg-base-100` with `card-body`
+- **Buttons:** `btn btn-primary` (gold), `btn btn-outline btn-primary` (outline), `btn-lg` for main CTAs
+- **Fixed nav:** Mega-menu with 5 top-level items, glass backdrop, slide-out mobile menu
+- **Footer:** Dark `bg-neutral` with gold accent bar
 - **Icons:** Inline SVG paths (no icon library)
 - **Responsive:** `sm:` (640px), `md:` (768px), `lg:` (1024px)
 
