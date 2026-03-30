@@ -13,7 +13,7 @@ You need these installed to use Claude Desktop for managing website content:
 | Software | Download | Why |
 |----------|----------|-----|
 | **Node.js 20 LTS** | [nodejs.org/en/download](https://nodejs.org/en/download) | Required — Claude Desktop's Contentful connection runs via `npx` |
-| **Claude Desktop** | [claude.ai/download](https://claude.ai/download) | The AI assistant that manages your content |
+| **Claude Desktop** | [claude.ai/download](https://claude.ai/download) | The AI assistant that manages your content (Pro subscription or above recommended) |
 | **Git** | [git-scm.com/downloads](https://git-scm.com/downloads) | Required — to clone and update the project |
 
 ### For development (additional)
