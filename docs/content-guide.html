@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMI Website — Content Management Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'emi-gold': '#C5960C',
+            'emi-gold-dark': '#A67C0A',
+            'emi-charcoal': '#333333',
+            'emi-black': '#1A1A1A',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .faq-answer { display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .mermaid { background: #f9fafb; border-radius: 8px; padding: 1.5rem; }
+  </style>
+</head>
+<body class="bg-white text-emi-charcoal">
+
+  <!-- Header -->
+  <header class="bg-emi-black text-white">
+    <div class="max-w-4xl mx-auto px-6 py-8">
+      <div class="flex items-center gap-3 mb-2">
+        <div class="w-10 h-10 bg-emi-gold rounded-lg flex items-center justify-center font-bold text-emi-black text-lg">E</div>
+        <h1 class="text-2xl font-bold">EMI Website — Content Management Guide</h1>
+      </div>
+      <p class="text-white/70">How to manage content on equipmentmanagement.com.au using Contentful and Claude Desktop.</p>
+    </div>
+    <div class="h-1 bg-emi-gold"></div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-10 space-y-16">
+
+    <!-- ============================================ -->
+    <!-- 1. Architecture Overview -->
+    <!-- ============================================ -->
+    <section>
+      <h2 class="text-2xl font-bold mb-2">How the Website Works</h2>
+      <p class="text-lg text-gray-600 mb-6">The EMI website is a <strong>static site</strong> — it's built once and served as plain HTML files. Content changes require a rebuild, which happens automatically.</p>
+
+      <h3 class="text-lg font-semibold mb-3">Content → Build → Live Site</h3>
+      <div class="mermaid">
+flowchart LR
+    A["📝 Contentful\n(Content Management)"] -->|"content fetched\nat build time"| B["⚙️ Astro\n(Site Builder)"]
+    B -->|"static HTML\nCSS, images"| C["🌐 Netlify\n(Web Hosting)"]
+    A -->|"webhook on\npublish"| C
+    C -->|"serves"| D["👤 Visitors\nequipmentmanagement.com.au"]
+
+    style A fill:#f0e6c8,stroke:#C5960C,stroke-width:2px,color:#333
+    style B fill:#e8e8e8,stroke:#666,stroke-width:2px,color:#333
+    style C fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#333
+    style D fill:#fff,stroke:#999,stroke-width:1px,color:#333
+      </div>
+
+      <h3 class="text-lg font-semibold mt-8 mb-3">Where Claude Desktop Fits In</h3>
+      <div class="mermaid">
+flowchart LR
+    U["🧑 You\n(Russell)"] -->|"plain English\nrequests"| CD["🤖 Claude Desktop"]
+    CD -->|"creates &amp; edits\ncontent via API"| CF["📝 Contentful"]
+    CF -->|"publish triggers\nauto-rebuild"| N["🌐 Live Site"]
+
+    style U fill:#fff,stroke:#999,stroke-width:1px,color:#333
+    style CD fill:#d6e4f0,stroke:#4a90d9,stroke-width:2px,color:#333
+    style CF fill:#f0e6c8,stroke:#C5960C,stroke-width:2px,color:#333
+    style N fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#333
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 2. What Lives Where -->
+    <!-- ============================================ -->
+    <section>
+      <h2 class="text-2xl font-bold mb-2">What Lives Where</h2>
+      <p class="text-lg text-gray-600 mb-6">Claude Desktop can help you change <strong>both</strong> — just ask. The split is about what <em>kind</em> of content it is, not who can change it.</p>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-6">
+        <!-- Contentful -->
+        <div class="border-2 border-emi-gold rounded-lg p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-2xl">📝</span>
+            <h3 class="font-bold text-lg">Contentful (CMS)</h3>
+          </div>
+          <p class="text-sm text-emi-gold font-medium mb-3">Repeatable, structured content</p>
+          <p class="text-sm text-gray-500 mb-3">Content that follows a template and gets created regularly. Each item has the same fields (title, date, body, tags, image, etc.).</p>
+          <ul class="space-y-1.5 text-sm">
+            <li class="flex items-start gap-2"><span class="text-emi-gold mt-0.5">&#10003;</span> News articles &amp; blog posts</li>
+            <li class="flex items-start gap-2"><span class="text-emi-gold mt-0.5">&#10003;</span> Article featured images</li>
+            <li class="flex items-start gap-2"><span class="text-emi-gold mt-0.5">&#10003;</span> Testimonials &amp; case studies</li>
+            <li class="flex items-start gap-2"><span class="text-emi-gold mt-0.5">&#10003;</span> Product features &amp; descriptions</li>
+          </ul>
+          <p class="text-xs text-gray-400 mt-3">Think: "I'll be adding more of these over time."</p>
+        </div>
+
+        <!-- Astro Code -->
+        <div class="border-2 border-blue-300 rounded-lg p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-2xl">⚙️</span>
+            <h3 class="font-bold text-lg">Astro (Code)</h3>
+          </div>
+          <p class="text-sm text-blue-500 font-medium mb-3">Layout, design, one-off pages</p>
+          <p class="text-sm text-gray-500 mb-3">The structure and look of the site. Pages that are unique and don't follow a repeating pattern.</p>
+          <ul class="space-y-1.5 text-sm">
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#10003;</span> Page layouts &amp; design</li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#10003;</span> Navigation &amp; footer</li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#10003;</span> Homepage sections</li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#10003;</span> Contact form</li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#10003;</span> Hero images &amp; logos</li>
+          </ul>
+          <p class="text-xs text-gray-400 mt-3">Think: "This is set up once and changes occasionally."</p>
+        </div>
+      </div>
+
+      <!-- Not sure? -->
+      <div class="bg-gray-50 rounded-lg p-5 border border-gray-200">
+        <p class="font-medium mb-1">Not sure where something belongs?</p>
+        <p class="text-sm text-gray-600">Just ask Claude — it knows the site structure and will put things in the right place. You don't need to decide.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 3. Content Workflows -->
+    <!-- ============================================ -->
+    <section>
+      <h2 class="text-2xl font-bold mb-6">Content Workflows with Claude Desktop</h2>
+
+      <!-- Writing a News Article -->
+      <div class="mb-10">
+        <h3 class="text-xl font-semibold mb-4">Writing a News Article</h3>
+        <div class="space-y-3">
+          <div class="flex gap-4 items-start">
+            <span class="bg-emi-gold text-emi-black font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 text-sm">1</span>
+            <div>
+              <p class="font-medium">Ask Claude to write the article</p>
+              <p class="text-sm text-gray-500 mt-1">Example: <em>"Write a news article about our new partnership with BHP for the Jimblebar site. Tag it as mining and news."</em></p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-emi-gold text-emi-black font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 text-sm">2</span>
+            <div>
+              <p class="font-medium">Review the draft</p>
+              <p class="text-sm text-gray-500 mt-1">Claude creates it as a <strong>draft</strong> in Contentful. Ask to see it, request changes, or edit directly in the <a href="https://app.contentful.com" target="_blank" class="text-emi-gold hover:underline">Contentful web app</a>.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="bg-emi-gold text-emi-black font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 text-sm">3</span>
+            <div>
+              <p class="font-medium">Publish when ready</p>
+              <p class="text-sm text-gray-500 mt-1">Say <em>"publish that article"</em> or publish it in Contentful. This triggers an automatic rebuild — the article goes live within a few minutes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Images -->
+      <div class="mb-10">
+        <h3 class="text-xl font-semibold mb-4">Adding Images</h3>
+        <div class="bg-gray-50 rounded-lg p-5 space-y-4">
+          <div>
+            <p class="font-medium">Images from the web</p>
+            <p class="text-sm text-gray-500">Give Claude the image URL and it uploads directly to Contentful.</p>
+            <p class="text-sm text-gray-500 mt-1">Example: <em>"Use this image for the article: https://example.com/photo.jpg"</em></p>
+          </div>
+          <hr class="border-gray-200">
+          <div>
+            <p class="font-medium">Local images (photos, screenshots)</p>
+            <p class="text-sm text-gray-500">Upload them directly in the <a href="https://app.contentful.com" target="_blank" class="text-emi-gold hover:underline">Contentful web app</a> (Media section, drag &amp; drop), then tell Claude to use it.</p>
+            <p class="text-sm text-gray-500 mt-1">Example: <em>"Attach the image I just uploaded called site-photo.jpg to the article"</em></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publishing -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Draft vs Published</h3>
+        <div class="mermaid">
+flowchart LR
+    D["📄 Draft\n(not visible on site)"] -->|"publish"| P["✅ Published\n(live on site)"]
+    P -->|"unpublish"| D
+
+    style D fill:#fff3cd,stroke:#C5960C,stroke-width:2px,color:#333
+    style P fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#333
+        </div>
+        <ul class="mt-4 space-y-2 text-sm text-gray-600">
+          <li><strong>Draft:</strong> Content exists in Contentful but is NOT on the live website. Safe to edit and review.</li>
+          <li><strong>Published:</strong> Content is live. Publishing triggers Netlify to rebuild the site (takes 1-3 minutes).</li>
+          <li><strong>Unpublish:</strong> Removes content from the live site without deleting it. You can republish later.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 4. Getting Started -->
+    <!-- ============================================ -->
+    <section>
+      <h2 class="text-2xl font-bold mb-6">Getting Started</h2>
+
+      <div class="bg-gray-50 rounded-lg p-6 space-y-6">
+        <div>
+          <h3 class="font-semibold text-lg mb-2">One-time Setup</h3>
+          <ol class="list-decimal list-inside space-y-2 text-sm text-gray-600">
+            <li>Install <a href="https://claude.ai/download" target="_blank" class="text-emi-gold hover:underline">Claude Desktop</a></li>
+            <li>Get the <code class="bg-gray-200 px-1.5 py-0.5 rounded text-xs">.env</code> file from your developer (contains API keys)</li>
+            <li>Place it in the project root folder (same folder as <code class="bg-gray-200 px-1.5 py-0.5 rounded text-xs">.env.example</code>)</li>
+          </ol>
+        </div>
+
+        <hr class="border-gray-200">
+
+        <div>
+          <h3 class="font-semibold text-lg mb-2">Each Time You Want to Edit Content</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-white rounded-lg p-4 border">
+              <p class="font-medium mb-2">🍎 macOS</p>
+              <p class="text-sm text-gray-500 mb-2">Open Terminal in the project folder, then run:</p>
+              <code class="block bg-emi-black text-green-400 p-3 rounded text-sm">./launch-claude.sh</code>
+            </div>
+            <div class="bg-white rounded-lg p-4 border">
+              <p class="font-medium mb-2">🪟 Windows</p>
+              <p class="text-sm text-gray-500 mb-2">Open PowerShell in the project folder, then run:</p>
+              <code class="block bg-emi-black text-green-400 p-3 rounded text-sm">.\launch-claude.ps1</code>
+            </div>
+          </div>
+          <p class="text-sm text-gray-500 mt-3">This loads your API keys and opens Claude Desktop with Contentful access. You <strong>cannot</strong> just open Claude Desktop from the dock/Start Menu — it won't have the keys.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 5. Example Prompts -->
+    <!-- ============================================ -->
+    <section>
+      <h2 class="text-2xl font-bold mb-6">Example Prompts for Claude</h2>
+      <div class="space-y-3">
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <p class="text-sm font-medium text-blue-800">Writing</p>
+          <p class="text-sm text-blue-700 mt-1">"Write a news article about our new environmental monitoring project at the Roy Hill site. Tag it as environment and mining."</p>
+        </div>
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <p class="text-sm font-medium text-blue-800">Editing</p>
+          <p class="text-sm text-blue-700 mt-1">"Update the article about the BHP partnership — change the project timeline from Q2 to Q3 2026."</p>
+        </div>
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <p class="text-sm font-medium text-blue-800">Reviewing</p>
+          <p class="text-sm text-blue-700 mt-1">"Show me all draft news articles that haven't been published yet."</p>
+        </div>
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <p class="text-sm font-medium text-blue-800">Publishing</p>
+          <p class="text-sm text-blue-700 mt-1">"Publish the safety audit article we wrote earlier."</p>
+        </div>
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <p class="text-sm font-medium text-blue-800">Images</p>
+          <p class="text-sm text-blue-700 mt-1">"Add a featured image to the latest article using this URL: https://example.com/site-photo.jpg"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 6. FAQ -->
+    <!-- ============================================ -->
+    <section>
+      <h2 class="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-2" id="faq">
+
+        <div class="faq-item border rounded-lg">
+          <button class="w-full text-left p-4 flex justify-between items-center" onclick="this.parentElement.classList.toggle('open')">
+            <span class="font-medium">I published content but the website hasn't updated?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-4 text-sm text-gray-600">
+            <p>After publishing in Contentful, Netlify needs to rebuild the site. This usually takes <strong>1-3 minutes</strong>. If it's been longer than 5 minutes, check the <a href="https://app.netlify.com" target="_blank" class="text-emi-gold hover:underline">Netlify dashboard</a> for build errors, or ask your developer to check the webhook configuration.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border rounded-lg">
+          <button class="w-full text-left p-4 flex justify-between items-center" onclick="this.parentElement.classList.toggle('open')">
+            <span class="font-medium">Can I change the navigation, footer, or page design?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-4 text-sm text-gray-600">
+            <p>No — these are built into the site code and need a developer to change. Content (articles, text, images) is what you can manage through Contentful and Claude Desktop.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border rounded-lg">
+          <button class="w-full text-left p-4 flex justify-between items-center" onclick="this.parentElement.classList.toggle('open')">
+            <span class="font-medium">Can I add a completely new page to the site?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-4 text-sm text-gray-600">
+            <p>New <strong>news articles</strong> — yes, via Claude Desktop or Contentful. New <strong>product pages</strong> or entirely new sections — this needs a developer to create the page template first, then you can manage the content.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border rounded-lg">
+          <button class="w-full text-left p-4 flex justify-between items-center" onclick="this.parentElement.classList.toggle('open')">
+            <span class="font-medium">Can I preview content before it goes live?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-4 text-sm text-gray-600">
+            <p>Content starts as a <strong>draft</strong> — it won't appear on the live site until you publish it. You can review the text and images in Contentful's editor before publishing. For a full visual preview, ask your developer about setting up a preview environment.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border rounded-lg">
+          <button class="w-full text-left p-4 flex justify-between items-center" onclick="this.parentElement.classList.toggle('open')">
+            <span class="font-medium">Claude Desktop says "Access token invalid" — what do I do?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-4 text-sm text-gray-600">
+            <p>You probably opened Claude Desktop directly instead of using the launcher script. Close Claude Desktop and relaunch using <code class="bg-gray-200 px-1.5 py-0.5 rounded text-xs">./launch-claude.sh</code> (Mac) or <code class="bg-gray-200 px-1.5 py-0.5 rounded text-xs">.\launch-claude.ps1</code> (Windows). The launcher loads your API keys — without it, Claude can't connect to Contentful.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border rounded-lg">
+          <button class="w-full text-left p-4 flex justify-between items-center" onclick="this.parentElement.classList.toggle('open')">
+            <span class="font-medium">What tags can I use on articles?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-4 pb-4 text-sm text-gray-600">
+            <p>The available tags are: <strong>maintenance</strong>, <strong>software</strong>, <strong>mining</strong>, <strong>safety</strong>, <strong>environment</strong>, <strong>news</strong>, <strong>case-study</strong>. You can use multiple tags per article. These power the filter buttons on the News page.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-emi-black text-white/60 text-sm mt-16">
+    <div class="h-1 bg-emi-gold"></div>
+    <div class="max-w-4xl mx-auto px-6 py-6">
+      <p>EMI Website Content Guide &middot; Internal reference document &middot; Last updated March 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+  </script>
+</body>
+</html>

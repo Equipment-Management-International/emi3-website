@@ -21,7 +21,11 @@ This is a full rebuild of their existing site using a modern Astro + Contentful 
 ```
 ├── Dockerfile.dev       # Dev container (Node 20 + pnpm)
 ├── docker-compose.yml   # One-command dev server for Windows
+├── launch-claude.sh     # macOS: launch Claude Desktop with env vars
+├── launch-claude.ps1    # Windows: launch Claude Desktop with env vars
 ├── load-env.ps1         # PowerShell helper to load .env for MCP
+├── docs/
+│   └── content-guide.html  # Non-technical content management guide
 ├── src/
 │   ├── components/          # Astro components (.astro files)
 │   │   ├── Nav.astro        # Mega-menu nav with mobile slide-out
@@ -97,10 +101,19 @@ docker compose up
 docker compose down
 ```
 
-To use Claude Code MCP tools (Contentful), load env vars first:
-```powershell
-. .\load-env.ps1
+### Launching Claude Desktop
+
+Claude Desktop needs environment variables (API keys) to connect to Contentful. **Do not open Claude Desktop from the dock/Start Menu** — use the launcher scripts instead:
+
+```bash
+# macOS
+./launch-claude.sh
+
+# Windows (PowerShell)
+.\launch-claude.ps1
 ```
+
+These scripts load `.env` into the process environment, then launch Claude Desktop. The Contentful MCP server inherits the tokens from the parent process. The `.mcp.json` file uses `${CONTENTFUL_MANAGEMENT_ACCESS_TOKEN}` and `${CONTENTFUL_SPACE_ID}` references that resolve from these env vars.
 
 ### Environment Variables
 
@@ -108,7 +121,7 @@ The `.env` file uses plain `KEY=VALUE` format (no `export` prefix).
 
 - **macOS**: Run `set -a; source .env; set +a` to load into your shell
 - **Windows/Docker**: `docker-compose.yml` loads `.env` automatically
-- **Windows MCP**: Run `. .\load-env.ps1` in PowerShell before launching Claude Code
+- **Claude Desktop**: Use `launch-claude.sh` (Mac) or `launch-claude.ps1` (Windows)
 
 Create your `.env` from `.env.example` and fill in the Contentful tokens.
 
@@ -280,6 +293,28 @@ Usage: `bg-emi-gold`, `text-emi-charcoal`, `border-emi-gold-dark`, etc.
 /privacy-policy        → Legal
 /term-of-use           → Legal
 ```
+
+## Content Management via Claude Desktop
+
+Non-technical users (Russell) can manage content through Claude Desktop. See `docs/content-guide.html` for the full user-facing guide.
+
+### What Goes Where
+- **Contentful:** Repeatable structured content — news articles, blog posts, testimonials, product features. Created/edited via Claude Desktop or the Contentful web UI.
+- **Astro code:** Layouts, navigation, footer, one-off pages, static assets. Changed via Claude Desktop (code edits) or a developer.
+
+### Content Authoring Workflow
+1. Launch Claude Desktop via `./launch-claude.sh` or `.\launch-claude.ps1`
+2. Ask Claude to create/edit content in plain English
+3. Content is created as a **draft** in Contentful
+4. Review in Contentful web UI or ask Claude to show it
+5. Publish when ready — triggers automatic Netlify rebuild (1-3 min)
+
+### Image Uploads
+- **Web images:** Give Claude the URL — it uploads directly to Contentful via the Management API
+- **Local images:** Upload via Contentful web UI (drag & drop in Media section), then tell Claude to attach it
+
+### Contentful MCP Configuration
+The `.mcp.json` file configures the Contentful MCP server. It uses `${CONTENTFUL_MANAGEMENT_ACCESS_TOKEN}` and `${CONTENTFUL_SPACE_ID}` env var references — these resolve from the process environment set by the launcher scripts. Non-secret config (`ENVIRONMENT_ID`, `CONTENTFUL_HOST`) is hardcoded in `.mcp.json`.
 
 ## Reference Project
 
